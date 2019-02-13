@@ -1,0 +1,122 @@
+﻿<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset="UTF-8"/>
+        <title>自动对刀</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    </head>
+    
+    <body>
+        <div class="head1"><a href="index.html">HMI界面参数定义</a>
+            <hr>
+            <div class="head2">自动对刀
+                <hr>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S5D1">对刀结果调整</a></td>
+                            <td>推荐设置：根据偏刀情况</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        完成自动对刀进行磨削后，根据磨削的偏刀情况，用此参数来调整<br>
+                    </p>
+                </div>
+
+                <!--removed-->
+
+                <!--ifIsInternalBegin-->
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S5D5">Z轴测量起点</a></td>
+                            <td>推荐设置：工件在测头外50mm左右位置</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        手动开动机床，将测头伸出后使工件在Z轴方向距离测头一段距离，记录Z轴坐标<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S5D6">测量水平距</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此参数将影响磨削是否偏刀<br>
+                        推荐测量方法：<br>
+                        开动机床，将测头/开关接触工件右侧端面记录Z轴坐标Z1<br>
+                        开动机床，将砂轮齿顶对准工件左端面记录Z轴坐标Z2<br>
+                        测头半径R1,则测量水平距=绝对值(Z1-R1-Z2)<br>
+                    </p>
+                </div>
+
+                <!--ifIsKaiGuanCeLiangBegin-->
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S5D7">Z轴测量位</a></td>
+                            <td>推荐设置：开关在第一个螺纹内的位置</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        手动将测头开到工件内，将开关大概对到第一个螺纹槽里，记录此时Z轴坐标<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S5D9">工件小径</a></td>
+                            <td>推荐设置：测量工件</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此参数会影响开关开始测量时向后接近工件螺纹的位置，为避免开关碰撞工件，需输入准确<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S5D18">开关磨杆距</a></td>
+                            <td>推荐设置：根据测量结果</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        开关中心与磨杆中心前后方向上的距离，为保证开关可以正常测量，需保证准确<br>
+                    </p>
+                </div>
+                <!--ifIsKaiGuanCeLiangEnd-->
+
+                <!--removed-->
+                <!--ifIsInternalEnd-->
+
+                <!--removed-->
+            </div>
+        </div>
+    </body>
+</html>

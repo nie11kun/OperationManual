@@ -269,6 +269,38 @@
                             头架转速和表面粗糙度有关<br>
                         </p>
                     </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S26D39">外圆长度</a></td>
+                                <td>推荐设置：根据工件实际设置</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>大于零</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            测量工件外圆部分长度，磨削方式为保持时此参数影响分段磨削每段长度<br>
+                        </p>
+                    </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S26D40">保持分段</a></td>
+                                <td>推荐设置：</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>1~10</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            外圆保持磨削时，如果砂轮宽度小于工件外圆长度，需要进行分段磨削<br>
+                            推荐分段磨削时，保证每段的宽度小于砂轮宽度<br>
+                            当不需要分段时设为：1<br>
+                        </p>
+                    </div>
                 </div>
                 <hr>
                 <div class="head2">修整参数
@@ -565,6 +597,38 @@
                             此参数为磨削时的动作<br>
                             来回：进刀后，砂轮水平从磨削起点移动到磨削终点，再反向回来<br>
                             保持：砂轮持续进刀，不进行水平移动磨削<br>
+                        </p>
+                    </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S26D37">磨削砂轮转速</a></td>
+                                <td>推荐设置：根据需要选择</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>大于零</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            此参数为磨削砂轮转速<br>
+                            此选项开放输入时表示砂轮为恒转速模式<br>
+                        </p>
+                    </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S26D38">修整砂轮转速</a></td>
+                                <td>推荐设置：根据需要选择</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>大于零</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            此参数为修整时砂轮转速<br>
+                            此选项开放输入时表示砂轮为恒转速模式<br>
                         </p>
                     </div>
                 </div>

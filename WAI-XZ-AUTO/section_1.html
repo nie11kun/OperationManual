@@ -341,6 +341,126 @@
                         切换此选项选择加工螺纹或环形槽，会跳转到对应参数界面<br>
                     </p>
                 </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D43">起始磨削槽</a></td>
+                            <td>推荐设置：1</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于0</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        起始磨削的槽，如果是新工件则设置为1，如果是单独需要磨削其中的部分槽，则通过此参数设置<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D44">终止磨削槽</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于0</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        终止磨削的槽，如果是新工件则根据左边总槽数来设置到最后一槽，如果是单独需要磨削其中的部分槽，则通过此参数设置<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D45">磨削起始.Z</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        第一槽的Z轴方向磨削位置，通过手动方式测量设置此参数<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D46">磨削起始.X</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        第一槽的X轴方向磨削位置，通过手动方式测量设置此参数<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D47">螺距</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于零</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此组同螺距环形槽的螺距<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D48">槽数</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于零</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此组同螺距环形槽的个数<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D49">组水平偏移</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此组同螺距环形槽进行水平偏移，方便调整环形槽的相对位置<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D50">组垂直偏移</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此组同螺距环形槽进行垂直偏移，方便调整环形槽的相对位置<br>
+                    </p>
+                </div>
 
                 <!--removed-->
 
@@ -440,6 +560,8 @@
                     </p>
                 </div>
                 <!--ifIsExternalEnd-->
+
+                <!--removed-->
 
             </div>
         </div>

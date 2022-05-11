@@ -25,7 +25,20 @@
                         <ol class="list">
                             <li>打开备份恢复界面，将模式选择设置为<b class="highlight">备份</b></li>
                             <li>设置<a href="section_31.html#S31D2">备份路径</a>、<a href="section_31.html#S31D3">备份目录</a>、<a href="section_31.html#S31D4">文件名称</a></li>
-                            <li>如需备份到后置USB，需要将配置文件 <b class="highlight">extdev.ini</b> 放入系统目录: <b class="highlight">/oem/sinumerik/nck</b>，并重启系统</li>
+                            <li>如需备份到前置USB，需要将配置文件 <b class="highlight">extdev.ini</b> 放入系统目录: <b class="highlight">/oem/sinumerik/nck</b>，并重启系统。测试无法备份到后置 USB</li>
+                            <li><b class="highlight">extdev.ini</b> 文件内容如下：</li>
+                            <div>
+                                ;****************************<br>
+                                ;备份时写入文件地址定义文件<br>
+                                ;放入 oem 或 user 路径下, user 优先级高于 oem. /oem/sinumerik/nck/extdev.ini<br>
+                                ;修改配置文件后需要重启 nck 才会生效<br>
+                                ;测试只能识别前置USB接口, 后置 DEV_3 无效<br>
+                                [ExternalDevices]<br>
+                                <br>
+                                ;/dev/ext/8 = "//DEV_3, /, O"<br>
+                                /dev/ext/9 = "USB, /, O"  <br>
+                                ;****************************<br>                              
+                            </div>
                             <li>根据需要设置<a href="section_31.html#S31D5">备份模式</a></li>
                             <li>如果设置为自定义变量模式则需要定义：<a href="section_31.html#S31D6">列表目录</a>、<a href="section_31.html#S31D7">列表名称</a>、<a href="section_31.html#S31D8">列表行数</a></li>
                             <li>变量列表路径默认在子程序目录下</li>

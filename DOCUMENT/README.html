@@ -1387,17 +1387,19 @@
         <li>是否有自动对刀
             <ul>
                 <li>自动对刀机构类型: 接近开关 测量头 开关和测头</li>
+                <li>测头测量时测量孔位置：工件正面 工件背面</li>
             </ul>
         </li>
         <li>是否是磨削中心
             <ul>
                 <li>是否有U轴</li>
+                <li>无U轴时外磨砂轮结构：后置 前置</li>
             </ul>
         </li>
         <li>是否有A轴</li>
         <li>砂轮驱动器类型: 西门子伺服 变频器/普通电机</li>
         <li>修整轮驱动器类型: 西门子伺服 变频器/普通电机</li>
-        <li>螺纹磨削工艺界面中,粗磨进给量是否自动计算</li>
+        <li>磨削中心外磨砂轮驱动器类型: 西门子伺服 变频器/普通电机</li>
     </ul>
     <h2 id="build-guide">Build Guide</h2>
     <p>视频演示: <a href="https://niekun.net/cloud/media/HorizonJuicerCreatorGuide.mp4">点击播放</a></p>
@@ -1428,6 +1430,7 @@
         <li>若在线帮助hlp进行了修改，需删除<code>siemens\sinumerik\sys_cache\hmi\</code>目录下hlp文件夹，重启HMI</li>
         <li>新版本系统默认 vnc 功能没有初始化密码无法访问，需要将 <code>sinumerikvnc.ini</code> 文件放入 <code>user/system/etc</code> 文件夹内，重启系统即可
         </li>
+        <li>如需在前置USB接口使用备份恢复功能，需要将 <code>extdev.ini</code> 文件放入 <code>user/sinumerik/nck</code> 文件夹内，重启系统即可</li>
     </ul>
     <h2 id="隐藏功能激活需在变量表手动修改">隐藏功能激活：(需在变量表手动修改)</h2>
     <h3 id="磨削相关">磨削相关</h3>
@@ -1477,7 +1480,7 @@
         <li>螺距变换界面开启：变量表修改TOOL_SET[61]=1 (磨削界面显示)</li>
         <li>自磨夹具界面开启：变量表修改TECHNOLOGY[232]=1 (磨削界面显示)</li>
         <li>内螺纹反向孔倒角界面开启：变量表修改INI[21]=1 (磨削界面显示)</li>
-        <li>备份恢复界面开启：custom主界面 VS2 按钮</li>
+        <li>备份恢复界面开启：custom主界面 VS2 按钮 -- V3.13.7</li>
     </ul>
     <h3 id="b_machine_ini-定义隐藏功能">B_MACHINE_INI 定义隐藏功能</h3>
     <ul>

@@ -205,44 +205,12 @@
                 <div class="parameterCell">
                     <table border="1" cellspacing="0" cellpadding="2" width="100%">
                         <tr>
-                            <td><a class="var_mark" name="S1D20">螺旋升角：度</a></td>
+                            <td><a class="var_mark" name="S1D20">螺旋升角</a></td>
                             <td>推荐设置：无</td>
                         </tr>
                         <tr>
                             <td>取值范围</td>
-                            <td>0~90</td>
-                        </tr>
-                    </table>
-                    <p class="parameterExplain">
-                        打开开关后，螺旋升角根据当前工件螺距和工件中径自动计算<br>
-                        关闭开关后，螺旋升角手动输入<br>
-                    </p>
-                </div>
-                <div class="parameterCell">
-                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
-                        <tr>
-                            <td><a class="var_mark" name="S1D21">螺旋升角：分</a></td>
-                            <td>推荐设置：无</td>
-                        </tr>
-                        <tr>
-                            <td>取值范围</td>
-                            <td>0~60</td>
-                        </tr>
-                    </table>
-                    <p class="parameterExplain">
-                        打开开关后，螺旋升角根据当前工件螺距和工件中径自动计算<br>
-                        关闭开关后，螺旋升角手动输入<br>
-                    </p>
-                </div>
-                <div class="parameterCell">
-                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
-                        <tr>
-                            <td><a class="var_mark" name="S1D22">螺旋升角：秒</a></td>
-                            <td>推荐设置：无</td>
-                        </tr>
-                        <tr>
-                            <td>取值范围</td>
-                            <td>0~60</td>
+                            <td>-90~90</td>
                         </tr>
                     </table>
                     <p class="parameterExplain">
@@ -508,6 +476,23 @@
                     </table>
                     <p class="parameterExplain">
                         此位置为磨削过程中需要修整时砂轮出来的位置，需保证砂轮能够安全向后开动<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D51">磨削退出方式</a></td>
+                            <td>推荐设置：根据工件内孔和砂轮大小设置</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>直接退出/螺旋退出</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此参数控制砂轮加工到工件左端后如何退出到工件外<br>
+                        如果砂轮直径小于工件内径，推荐设置为直接退出<br>
+                        如果砂轮直径大于工件内径，推荐设置为螺旋退出<br>
                     </p>
                 </div>
                 <!--ifIsInternalEnd-->

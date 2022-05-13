@@ -1,0 +1,329 @@
+﻿<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset="UTF-8"/>
+        <title>齿型界面</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    </head>
+    
+    <body>
+        <div class="head1"><a href="index.html">HMI界面参数定义</a>
+            <hr>
+            <div class="head2">齿型界面
+                <hr>
+                <p>具体操作步骤请参考<a href="section_10.html" class="highlight">修整</a></p>
+                <hr>
+                
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D40">初始左滚道</a></td>
+                            <td>推荐设置：根据工件图纸输入或自动计算生成</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于零</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此处为工件左滚道半径标准值<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D41">初始右滚道</a></td>
+                            <td>推荐设置：根据工件图纸输入或自动计算生成</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于零</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此处为工件右滚道半径标准值<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D42">调整左滚道</a></td>
+                            <td>推荐设置：根据加工出来的测量报告，调整滚道半径</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此处设置值叠加初始左滚道<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D43">调整右滚道</a></td>
+                            <td>推荐设置：根据加工出来的测量报告，调整滚道半径</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此处设置值叠加初始右滚道<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D44">当前左滚道</a></td>
+                            <td>推荐设置：此处是当前值和调整值叠加后的值</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        程序最终会使用此处设置的值执行<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D45">当前右滚道</a></td>
+                            <td>推荐设置：此处是当前值和调整值叠加后的值</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        程序最终会使用此处设置的值执行<br>
+                    </p>
+                </div>
+
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D46">初始左偏心</a></td>
+                            <td>推荐设置：根据工件图纸输入或自动计算生成</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于零</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此处为工件左侧水平偏心标准值<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D47">初始右偏心</a></td>
+                            <td>推荐设置：根据工件图纸输入或自动计算生成</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于零</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此处为工件右侧水平偏心标准值<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D48">调整左偏心</a></td>
+                            <td>推荐设置：根据加工出来的测量报告，调整水平偏心</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此处设置值叠加初始左偏心<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D49">调整右偏心</a></td>
+                            <td>推荐设置：根据加工出来的测量报告，调整水平偏心</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此处设置值叠加初始右水平偏心<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D50">当前左偏心</a></td>
+                            <td>推荐设置：此处是当前值和调整值叠加后的值</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        程序最终会使用此处设置的值执行<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D51">当前右偏心</a></td>
+                            <td>推荐设置：此处是当前值和调整值叠加后的值</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        程序最终会使用此处设置的值执行<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D52">圆弧角度</a></td>
+                            <td>推荐设置：设置需要修整出来的圆弧角度</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>45-90</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        如果设置为90，则修整出来一个半圆<br>
+                        设置角度为和垂直方向夹角<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D53">过渡斜线角度</a></td>
+                            <td>推荐设置：设置齿型倒角部分角度</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>0-90</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        设置角度为水平方向夹角<br>
+                        如果设置为0，则水平方向修整出去<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D54">过渡斜线长度</a></td>
+                            <td>推荐设置：设置齿型倒角部分长度</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于0</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        倒角部分的斜线长度<br>
+                        此长度至少为一个滚轮半径长度<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D55">自动计算</a></td>
+                            <td>推荐设置：是否自动计算圆弧半径和偏心</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>是/否</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        如果打开自动计算，需要设置钢球直径和接触角<br>
+                        圆弧半径=1.11 * 钢球直径 / 2<br>
+                        水平偏心=(圆弧半径 - 钢球直径 / 2) * SIN(接触角 / 180 * PI)<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D56">钢球直径</a></td>
+                            <td>推荐设置：双圆弧齿型钢球直径大小</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于零</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        如果打开自动计算，需要设置此参数<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D57">接触角</a></td>
+                            <td>推荐设置：双圆弧齿型接触角大小</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于零</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        如果打开自动计算，需要设置此参数<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D58">齿形旋转角度</a></td>
+                            <td>推荐设置：根据测量结果，齿型整体旋转一个角度</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>-5 ~ +5</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        此参数可以保持圆弧半径不变的情况下，调整接触角对称<br>
+                        输入正值，逆时针旋转；输入负值，顺时针旋转<br>
+                        只能微调此角度，不可大幅度调整<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S6D59">右侧高低微调</a></td>
+                            <td>推荐设置：根据测量结果，齿型右侧高低微调</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>-0.2 ~ +0.2</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        需要调整接触角但不想改圆弧时可微调此处<br>
+                        输入正值，右侧抬高；输入负值，右侧降低<br>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

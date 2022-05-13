@@ -21,6 +21,13 @@
                         <li>头架转速建议设置为120转/分钟</li>
                         <li>设置砂轮线速度保证砂轮转速在1500左右</li>
                         <li>可设置粗磨进刀量稍大(0.05)循环3次，快速将表面余量去掉</li>
+                        <li>外圆：磨削起点=左端面初始接触+0.1mm，磨削终点=右端面初始接触+0.1mm</li>
+                        <li>左端面：磨削起点=外圆当前接触+0.1mm，磨削终点=外圆当前接触+耳高+1mm</li> <!--ifIsHasULine-->
+                        <li>左端面：磨削起点=外圆当前接触-0.1mm，磨削终点=外圆当前接触-耳高-1mm</li> <!--ifIsNotHasUBackLine-->
+                        <li>左端面：磨削起点=外圆当前接触+0.1mm，磨削终点=外圆当前接触-耳高+1mm</li> <!--ifIsNotHasUFrontLine-->
+                        <li>右端面：磨削起点=外圆当前接触-壁厚，磨削终点=外圆当前接触+1mm</li> <!--ifIsHasULine-->
+                        <li>右端面：磨削起点=外圆当前接触+壁厚，磨削终点=外圆当前接触-1mm</li> <!--ifIsNotHasUBackLine-->
+                        <li>右端面：磨削起点=外圆当前接触-壁厚，磨削终点=外圆当前接触+1mm</li> <!--ifIsNotHasUFrontLine-->
                     </ol>
                 </div>
             </div>
@@ -30,6 +37,7 @@
                     <li>加工选择界面侧边栏选择台阶</li><br><img src="resources/img/pic45.png" height="300"><br><br>
                     <li>台阶初始磨削位置为外圆当前接触位置，所以加工台阶前需要完成外圆的加工</li>
                     <li>工艺参数设置方法和外圆部分工艺设置相同</li><br><img src="resources/img/pic46.png" height="300"><br><br>
+                    <li>台阶：磨削起点=左端面当前接触+台阶距离，磨削终点=右端面初始接触+0.1mm</li>
                 </ol>
             </div>
         </div>

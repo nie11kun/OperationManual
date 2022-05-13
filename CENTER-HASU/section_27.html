@@ -60,6 +60,7 @@
                             此参数时根据外圆参数界面的当前磨削接触自动计算而来<br>
                             磨削起点=外圆当前接触+0.1mm<br> <!--ifIsHasULine-->
 <!--removed-->
+<!--removed-->
                         </p>
                     </div>
                     <div class="parameterCell">
@@ -76,6 +77,7 @@
                         <p class="parameterExplain">
                             此参数时根据外圆参数界面的当前磨削接触和耳高自动计算而来<br>
                             磨削终点=外圆当前接触+耳高+1mm<br> <!--ifIsHasULine-->
+<!--removed-->
 <!--removed-->
                         </p>
                     </div>
@@ -142,6 +144,7 @@
                             此参数时根据外圆参数界面的当前磨削接触和壁厚自动计算而来<br>
                             磨削起点=外圆当前接触-壁厚<br> <!--ifIsHasULine-->
 <!--removed-->
+<!--removed-->
                         </p>
                     </div>
                     <div class="parameterCell">
@@ -158,6 +161,7 @@
                         <p class="parameterExplain">
                             此参数时根据外圆参数界面的当前磨削接触和耳高自动计算而来<br>
                             磨削终点=外圆当前接触+1mm<br> <!--ifIsHasULine-->
+<!--removed-->
 <!--removed-->
                         </p>
                     </div>
@@ -586,6 +590,23 @@
                         <p class="parameterExplain">
                             此参数为修整时砂轮转速<br>
                             此选项开放输入时表示砂轮为恒转速模式<br>
+                        </p>
+                    </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S27D37">加工中修整补偿</a></td>
+                                <td>推荐设置：</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>-0.5~0.5</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            此参数为磨削中修整时，对磨削位置的补偿量<br>
+                            补偿量输入正值为坐标轴正向补偿<br>
+                            设定值为每次修整的补偿量，推荐在加工中工件尺寸一直往一个方向发展的情况下，对磨削接触点进行调整<br>
                         </p>
                     </div>
                 </div>

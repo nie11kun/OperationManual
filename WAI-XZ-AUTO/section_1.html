@@ -205,44 +205,12 @@
                 <div class="parameterCell">
                     <table border="1" cellspacing="0" cellpadding="2" width="100%">
                         <tr>
-                            <td><a class="var_mark" name="S1D20">螺旋升角：度</a></td>
+                            <td><a class="var_mark" name="S1D20">螺旋升角</a></td>
                             <td>推荐设置：无</td>
                         </tr>
                         <tr>
                             <td>取值范围</td>
-                            <td>0~90</td>
-                        </tr>
-                    </table>
-                    <p class="parameterExplain">
-                        打开开关后，螺旋升角根据当前工件螺距和工件中径自动计算<br>
-                        关闭开关后，螺旋升角手动输入<br>
-                    </p>
-                </div>
-                <div class="parameterCell">
-                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
-                        <tr>
-                            <td><a class="var_mark" name="S1D21">螺旋升角：分</a></td>
-                            <td>推荐设置：无</td>
-                        </tr>
-                        <tr>
-                            <td>取值范围</td>
-                            <td>0~60</td>
-                        </tr>
-                    </table>
-                    <p class="parameterExplain">
-                        打开开关后，螺旋升角根据当前工件螺距和工件中径自动计算<br>
-                        关闭开关后，螺旋升角手动输入<br>
-                    </p>
-                </div>
-                <div class="parameterCell">
-                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
-                        <tr>
-                            <td><a class="var_mark" name="S1D22">螺旋升角：秒</a></td>
-                            <td>推荐设置：无</td>
-                        </tr>
-                        <tr>
-                            <td>取值范围</td>
-                            <td>0~60</td>
+                            <td>-90~90</td>
                         </tr>
                     </table>
                     <p class="parameterExplain">
@@ -561,7 +529,144 @@
                 </div>
                 <!--ifIsExternalEnd-->
 
-                <!--removed-->
+                <!--ifIsScrewTapBegin-->
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D32">丝锥磨削</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>开/关</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        如果需要加工丝锥，则打开此开关，磨螺纹则关闭此参数<br>
+                        打开后会出现丝锥相关设置参数<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D33">槽数</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>大于零</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        根据加工工件类型，正确设置槽数，常规类型有：3槽/4槽<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D34">槽类型</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>直槽/螺旋槽</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        根据工件图纸，正确设置槽类型。如果是直槽，无需设置此参数。<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D35">螺旋槽旋向</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>右旋/左旋</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        根据工件图纸，正确设置旋向。如果是直槽，无需设置此参数。<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D36">螺旋槽升角</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>0~90</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        根据工件图纸，正确设置角度<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D39">跳齿</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>开/关</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        如果需要磨削跳齿，则打开此开关，并设置下方相关参数<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D40">跳齿C轴调整</a></td>
+                            <td>推荐设置：根据磨削结果调整此参数</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>-360~360</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        如果加工的跳齿工件铲背不对或者切削点不对，则需要调整C轴起始位，通过此参数来前向/向后调整起始位<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D41">跳齿角度调整</a></td>
+                            <td>推荐设置：根据磨削结果调整此参数</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>-360~360</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        如果加工的跳齿工件完好的齿也有一定部分被磨削到，则通过此参数调整切削角度，使需保留的齿能够完好。<br>
+                    </p>
+                </div>
+                <div class="parameterCell">
+                    <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                        <tr>
+                            <td><a class="var_mark" name="S1D42">B轴起始角</a></td>
+                            <td>推荐设置：无</td>
+                        </tr>
+                        <tr>
+                            <td>取值范围</td>
+                            <td>0~360</td>
+                        </tr>
+                    </table>
+                    <p class="parameterExplain">
+                        开始磨削时，B轴的起始角度，调整此参数可以调整铲背<br>
+                    </p>
+                </div>
+                <!--ifIsScrewTapEnd-->
 
             </div>
         </div>

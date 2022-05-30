@@ -43,8 +43,6 @@
 .task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
 </style>
         
-        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
-        
     </head>
     <body class="vscode-body vscode-light">
         <p>内螺纹如果是 <strong>XW</strong> 向后靠修整，需要通过 <strong>XZ</strong> 修整器程序手动修改，修改步骤如下：</p>
@@ -80,7 +78,7 @@ IF GRIND[0]==1;
 85626 0 0 &quot;修整中心.W&quot;  ;
 </div></code></code></pre>
 <p><strong>a_dress.com</strong> 界面文件修改：</p>
-<pre><code><code><div>	DEF N_CX_X_TYPE=(I//1//WR4//&quot;/NC/_N_NC_GD2_ACX/DRESSER[38]&quot;/0,0,0/0,0,0/);    &lt;--赋值为 1
+<pre><code><code><div>	DEF N_CX_X_TYPE=(I//1//WR4,ac4//&quot;/NC/_N_NC_GD2_ACX/DRESSER[38]&quot;/0,0,0/0,0,0/);    &lt;--赋值为 1
 
     ...
 
@@ -126,7 +124,7 @@ IF GRIND[0]==1;
 //M(Mask12/$85380/&quot;panel_12_1_chs.png&quot;/)
     ...
 
-	DEF W_IM=(R///$85115,$85115,,/WR1//&quot;$AA_IM[W]&quot;/10,30,20/30,30,60/3);  &lt;-- Z 坐标修改为 W
+	DEF W_IM=(R///$85115,$85115,,/WR1,ac4//&quot;$AA_IM[W]&quot;/10,30,20/30,30,60/3);  &lt;-- Z 坐标修改为 W
 
     ...
 
@@ -144,7 +142,7 @@ IF GRIND[0]==1;
 
     ...
 
-	DEF W_IM=(R///$85115,$85115,,/WR1//&quot;$AA_IM[W]&quot;/10,30,20/30,30,60/3);  &lt;-- Z 坐标修改为 W
+	DEF W_IM=(R///$85115,$85115,,/WR1,ac4//&quot;$AA_IM[W]&quot;/10,30,20/30,30,60/3);  &lt;-- Z 坐标修改为 W
 
     ...
 
@@ -162,7 +160,7 @@ IF GRIND[0]==1;
 
     ...
 
-	DEF W_IM=(R///$85115,$85115,,/WR1//&quot;$AA_IM[W]&quot;/10,30,20/30,30,60/3);  &lt;-- Z 坐标修改为 W
+	DEF W_IM=(R///$85115,$85115,,/WR1,ac4//&quot;$AA_IM[W]&quot;/10,30,20/30,30,60/3);  &lt;-- Z 坐标修改为 W
 
     ...
 
@@ -172,5 +170,7 @@ IF GRIND[0]==1;
 	END_SUB
 </div></code></code></pre>
 
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
     </body>
     </html>

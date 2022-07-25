@@ -428,12 +428,12 @@ code {
 <tr>
 <td style="text-align:center">$A_DBB[9]</td>
 <td style="text-align:center">DB4900.DBX9.0</td>
-<td style="text-align:center">自动门打开开关</td>
+<td style="text-align:center">自动门1打开开关</td>
 </tr>
 <tr>
 <td style="text-align:center">$A_DBB[10]</td>
 <td style="text-align:center">DB4900.DBX10.0</td>
-<td style="text-align:center">自动门关闭开关</td>
+<td style="text-align:center">自动门1关闭开关</td>
 </tr>
 <tr>
 <td style="text-align:center">$A_DBB[11]</td>
@@ -508,17 +508,17 @@ code {
 <tr>
 <td style="text-align:center">$A_DBB[25]</td>
 <td style="text-align:center">DB4900.DBX25.0</td>
-<td style="text-align:center">螺纹动作-右左</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">$A_DBB[26]</td>
 <td style="text-align:center">DB4900.DBX26.0</td>
-<td style="text-align:center">螺纹动作-左右</td>
+<td style="text-align:center">自动门2打开开关</td>
 </tr>
 <tr>
 <td style="text-align:center">$A_DBB[27]</td>
 <td style="text-align:center">DB4900.DBX27.0</td>
-<td style="text-align:center">自动对刀测头控制继电器故障检测(M97测头信号有效时此信号为0，无效为1)</td>
+<td style="text-align:center">自动门2关闭开关</td>
 </tr>
 <tr>
 <td style="text-align:center">$A_DBB[28]</td>
@@ -3011,6 +3011,11 @@ code {
 <td style="text-align:center"></td>
 </tr>
 <tr>
+<td style="text-align:center">GRIND[9]</td>
+<td style="text-align:center">启动空运行热机程序(0否1是)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
@@ -3807,12 +3812,12 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[34]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">空运行热机-自动卡盘动作(0否1是)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[35]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">空运行热机-Z轴正向起始位置</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -3827,12 +3832,12 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[38]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">空运行热机-Z轴负向终止位置</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[39]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">空运行热机-X轴后方起始位置</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -3877,12 +3882,12 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[48]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">空运行热机-X轴前方终止位置</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[49]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">空运行热机-砂轮转速</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -3907,27 +3912,27 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[54]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">空运行热机-运行中轴速度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[55]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">空运行热机-界面按钮开启(0否1是)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[56]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">参数备份恢复界面可开启(0否1是)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[57]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">加工统计界面可开启(0否1是)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[58]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">新砂轮是否是成型砂轮界面参数显示(0隐藏1显示)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>

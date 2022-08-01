@@ -440,7 +440,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">M16</td>
-<td style="text-align:center">头架卡盘松开</td>
+<td style="text-align:center">调用360功能异步子程序</td>
 </tr>
 <tr>
 <td style="text-align:center">M17</td>
@@ -448,7 +448,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">M18</td>
-<td style="text-align:center">头架卡盘夹紧</td>
+<td style="text-align:center">360功能按键关闭</td>
 </tr>
 <tr>
 <td style="text-align:center">M19</td>
@@ -572,7 +572,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">M49</td>
-<td style="text-align:center">红灯报警</td>
+<td style="text-align:center">排屑器启动</td>
 </tr>
 <tr>
 <td style="text-align:center">M50</td>
@@ -592,19 +592,19 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">M54</td>
-<td style="text-align:center">液压修整后退</td>
+<td style="text-align:center">液压修整返回</td>
 </tr>
 <tr>
 <td style="text-align:center">M55</td>
-<td style="text-align:center">自动对刀关闭</td>
+<td style="text-align:center">自动对刀按键灯关闭</td>
 </tr>
 <tr>
 <td style="text-align:center">M56</td>
-<td style="text-align:center">退刀启动</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">M57</td>
-<td style="text-align:center">退刀取消</td>
+<td style="text-align:center">退刀按键灯关闭</td>
 </tr>
 <tr>
 <td style="text-align:center">M58</td>
@@ -616,7 +616,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">M60</td>
-<td style="text-align:center">对刀启动</td>
+<td style="text-align:center">外圆修整器没有回退到位置报警</td>
 </tr>
 <tr>
 <td style="text-align:center">M61</td>
@@ -632,7 +632,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">M64</td>
-<td style="text-align:center">变频修整轮1反转</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">M65</td>
@@ -640,19 +640,19 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">M66</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">安全门锁开</td>
 </tr>
 <tr>
 <td style="text-align:center">M67</td>
-<td style="text-align:center">头架修整器弹出</td>
+<td style="text-align:center">安全门锁关</td>
 </tr>
 <tr>
 <td style="text-align:center">M68</td>
-<td style="text-align:center">头架修整器缩回</td>
+<td style="text-align:center">液压外圆修整器伸出</td>
 </tr>
 <tr>
 <td style="text-align:center">M69</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">液压外圆修整器缩回</td>
 </tr>
 <tr>
 <td style="text-align:center">M70</td>
@@ -660,11 +660,11 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">M71</td>
-<td style="text-align:center">液压尾架生效</td>
+<td style="text-align:center">液压尾架顶紧</td>
 </tr>
 <tr>
 <td style="text-align:center">M72</td>
-<td style="text-align:center">液压尾架失效</td>
+<td style="text-align:center">液压尾架松开</td>
 </tr>
 <tr>
 <td style="text-align:center">M73</td>
@@ -676,19 +676,19 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">M75</td>
-<td style="text-align:center">头架液压卡盘生效</td>
+<td style="text-align:center">液压卡盘加紧</td>
 </tr>
 <tr>
 <td style="text-align:center">M76</td>
-<td style="text-align:center">头架液压卡盘失效</td>
+<td style="text-align:center">液压卡盘松开</td>
 </tr>
 <tr>
 <td style="text-align:center">M77</td>
-<td style="text-align:center">修整启动</td>
+<td style="text-align:center">自动测量：测量失败，触发报警信号</td>
 </tr>
 <tr>
 <td style="text-align:center">M78</td>
-<td style="text-align:center">修整关闭</td>
+<td style="text-align:center">修整按键灯关闭</td>
 </tr>
 <tr>
 <td style="text-align:center">M79</td>
@@ -751,31 +751,39 @@ code {
 <td style="text-align:center">测量机构2回退</td>
 </tr>
 <tr>
+<td style="text-align:center">机器人发送信号相关的M代码</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
 <td style="text-align:center">M92</td>
-<td style="text-align:center">在线测量伸出</td>
+<td style="text-align:center">尾架顶尖缩回信号置1（有效 ）</td>
 </tr>
 <tr>
 <td style="text-align:center">M93</td>
-<td style="text-align:center">在线测量回退</td>
+<td style="text-align:center">尾架顶尖缩回信号置0（复位 ）</td>
 </tr>
 <tr>
 <td style="text-align:center">M94</td>
-<td style="text-align:center">内螺纹头架防护罩壳-伸出</td>
+<td style="text-align:center">机床正在运行信号置1（有效 ）</td>
 </tr>
 <tr>
 <td style="text-align:center">M95</td>
-<td style="text-align:center">内螺纹头架防护罩壳-缩回</td>
+<td style="text-align:center">机床正在运行信号置0（复位 ）</td>
 </tr>
 <tr>
 <td style="text-align:center">M96</td>
-<td style="text-align:center">自动对刀测头信号无效</td>
+<td style="text-align:center">机床故障信号    置0（复位 ）</td>
 </tr>
 <tr>
 <td style="text-align:center">M97</td>
-<td style="text-align:center">自动对刀测头信号有效</td>
+<td style="text-align:center">机床加工完成信号置1（有效 ）</td>
 </tr>
 <tr>
 <td style="text-align:center">M98</td>
+<td style="text-align:center">机床加工完成信号置0（复位 ）</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 </tr>
 <tr>

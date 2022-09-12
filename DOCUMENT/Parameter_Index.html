@@ -227,79 +227,106 @@ pre code {
 </style>
 
 <style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+/*
 
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
-}
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
+*/
 
 .hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
 }
 
 .hljs-emphasis {
-	font-style: italic;
+  font-style: italic;
 }
 
 .hljs-strong {
-	font-weight: bold;
+  font-weight: bold;
 }
+
 </style>
 
 <style>
@@ -651,6 +678,26 @@ code {
 <td style="text-align:center"></td>
 </tr>
 <tr>
+<td style="text-align:center">AXIS_VER</td>
+<td style="text-align:center">修整垂直轴</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">AXIS_HORI</td>
+<td style="text-align:center">修整水平轴</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">SHAPE</td>
+<td style="text-align:center">齿形程序的程序名</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">SHAPE_EXTERNAL</td>
+<td style="text-align:center">外部齿形程序的程序名</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
 <td style="text-align:center">DRESSER[0]</td>
 <td style="text-align:center">修整器选择</td>
 <td style="text-align:center">0VW/1XZ/2滚压V/3液压/4滚压X</td>
@@ -693,26 +740,6 @@ code {
 <tr>
 <td style="text-align:center">DRESSER[8]</td>
 <td style="text-align:center">机械手时下次磨削修整量计算</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">AXIS_VER</td>
-<td style="text-align:center">修整垂直轴</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">AXIS_HORI</td>
-<td style="text-align:center">修整水平轴</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">SHAPE</td>
-<td style="text-align:center">齿形程序的程序名</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">SHAPE_EXTERNAL</td>
-<td style="text-align:center">外部齿形程序的程序名</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -4177,7 +4204,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[107]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">按头数计数修整-头数磨削累计计数(此数值循环中不清零，可跨循环次数及工序计数)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>

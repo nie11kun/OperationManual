@@ -609,6 +609,42 @@
                             设定值为每次修整的补偿量，推荐在加工中工件尺寸一直往一个方向发展的情况下，对磨削接触点进行调整<br>
                         </p>
                     </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S27D38">左端面终点补偿</a></td>
+                                <td>推荐设置：</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>大于零，小于耳高长度</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            此参数为磨削左端面时，来回拉磨时水平终点位置补偿值<br>
+                            默认为加工终点为耳高长度，如果需要砂轮不完全移动出工件左端面，可以设置此补偿值<br>
+                            例如输入5mm，表示来回拉磨时终点再距离耳高5mm处结束<br>
+                            需要注意，此参数不能设置过大，导致终点位置比起点位置还靠近外圆面<br>
+                        </p>
+                    </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S27D39">右端面终点补偿</a></td>
+                                <td>推荐设置：</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>大于零，小于壁厚长度</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            此参数为磨削右端面时，来回拉磨时水平终点位置补偿值<br>
+                            默认为加工终点为壁厚长度，如果需要砂轮不完全移动出工件右端面，可以设置此补偿值<br>
+                            例如输入5mm，表示来回拉磨时终点再距离壁厚5mm处结束<br>
+                            需要注意，此参数不能设置过大，导致终点位置比起点位置还靠近外圆面<br>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

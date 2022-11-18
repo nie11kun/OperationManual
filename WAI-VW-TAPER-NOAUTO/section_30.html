@@ -25,7 +25,7 @@
                         <ol class="list">
                             <li>打开备份恢复界面，将模式选择设置为<b class="highlight">备份</b></li>
                             <li>设置<a href="section_31.html#S31D2">备份路径</a>、<a href="section_31.html#S31D3">备份目录</a>、<a href="section_31.html#S31D4">文件名称</a></li>
-                            <li>如需备份到前置USB，需要将配置文件 <b class="highlight">extdev.ini</b> 放入系统目录: <b class="highlight">/oem/sinumerik/nck</b>，并重启系统。测试无法备份到后置 USB</li>
+                            <li>如需备份到前置USB，需要将配置文件 <b class="highlight">extdev.ini</b> 放入 oem 或 user 系统目录下: <b class="highlight">/oem/sinumerik/nck</b>，并重启系统。测试无法备份到后置 USB</li>
                             <li><b class="highlight">extdev.ini</b> 文件内容如下：</li>
                             <div>
                                 ;****************************<br>
@@ -44,7 +44,7 @@
                             <li>变量列表路径默认在子程序目录下</li>
                             <li>变量列表文件定义规则如下：</li>
                             <ol class="list">
-                                <li>参数最多不可超过800个</li>
+                                <li>参数最多不可超过790个</li>
                                 <li>需要定义参数文件总行数，包括分号注释所占行和空行</li>
                                 <li>参数文件内可在行开头用分号 " ; " 定义注释，注释所在行不会被读取，空行也不会被读取</li>
                                 <li>参数名称前加星号 "*" 表示字符串变量</li>

@@ -648,6 +648,110 @@
                             设定值为每次修整的补偿量，推荐在加工中工件尺寸一直往一个方向发展的情况下，对磨削接触点进行调整<br>
                         </p>
                     </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S26D42">初始接触模式</a></td>
+                                <td>推荐设置：</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>外圆当前/外圆初始</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            此参数为磨削台阶时，初始接触位置的来源<br>
+                            默认为外圆面加工后的当前接触位置作为台阶面的初始接触位置<br>
+                            如果加工外圆面的时候没有将整个面加工完全，可能需要加工台阶的时候从外圆面的初始位置开始加工<br>
+                        </p>
+                    </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S26D43">台阶终点补偿</a></td>
+                                <td>推荐设置：</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>大于零，小于台阶面长度</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            此参数为磨削台阶时，来回拉磨时水平终点位置补偿值<br>
+                            默认为加工终点为右端面接触位置，如果需要砂轮不完全移动出工件外圆面，可以设置此补偿值<br>
+                            例如输入5mm，表示来回拉磨时终点再距离右端面5mm处结束<br>
+                            需要注意，此参数不能设置过大，导致终点位置比起点位置还靠近左端面<br>
+                        </p>
+                    </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S26D44">直接靠磨左端</a></td>
+                                <td>推荐设置：</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>否/是</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            此参数设置加工外外圆面后，是否直接向左靠磨左端面<br>
+                            如果需要直接靠磨，磨削进刀量和速度调用左端面的工艺参数进行加工<br>
+                            注意左端面粗磨精磨都只会加工一个循环<br>
+                            此模式可以达到清根效果，也可以适当提升加工效率<br>
+                        </p>
+                    </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S26D45">外圆终点补偿</a></td>
+                                <td>推荐设置：</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>大于零，小于外圆面长度</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            此参数为磨削外圆时，来回拉磨时水平终点位置补偿值<br>
+                            默认为加工终点为右端面接触位置，如果需要砂轮不完全移动出工件外圆面，可以设置此补偿值<br>
+                            例如输入5mm，表示来回拉磨时终点再距离右端面5mm处结束<br>
+                            需要注意，此参数不能设置过大，导致终点位置比起点位置还靠近左端面<br>
+                        </p>
+                    </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S26D46">工件装夹角度</a></td>
+                                <td>推荐设置：合适上下工件的角度</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>0~360</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            程序执行结束后，头架会开到此位置<br>
+                        </p>
+                    </div>
+                    <div class="parameterCell">
+                        <table border="1" cellspacing="0" cellpadding="2" width="100%">
+                            <tr>
+                                <td><a class="var_mark" name="S26D47">偏转补偿角</a></td>
+                                <td>推荐设置：砂轮端面外圆都修时设置为0</td>
+                            </tr>
+                            <tr>
+                                <td>取值范围</td>
+                                <td>0~90</td>
+                            </tr>
+                        </table>
+                        <p class="parameterExplain">
+                            默认情况下，砂轮侧面每次修整会自动补偿左右端面磨削接触坐标，砂轮外圆面每次修整会自动补偿外圆磨削接触坐标<br>
+                            正常使用中，外磨砂轮侧面和正面保持90度角，此补偿角设置为0即可<br>
+                            当砂轮不修整侧面只修整正面，此时砂轮正面和侧面会有一个夹角，角度为砂轮安装时的偏转角<br>
+                            此时在修整外圆面的时候就需要对左右端面磨削接触位置进行补偿，补偿值和此偏转角度有关<br>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

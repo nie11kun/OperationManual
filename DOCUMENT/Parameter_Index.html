@@ -583,6 +583,11 @@ code {
 <td style="text-align:center">机器人发给系统,手爪收回到位信号</td>
 </tr>
 <tr>
+<td style="text-align:center">$A_DBB[33]</td>
+<td style="text-align:center">DB4900.DBX33.0</td>
+<td style="text-align:center">机器人发给系统,准备吹气信号(选项)</td>
+</tr>
+<tr>
 <td style="text-align:center">$A_DBB[60]</td>
 <td style="text-align:center">DB4900.DBX60.0</td>
 <td style="text-align:center">系统发给机器人,罩壳顶部门已打开信号,M80置1(有效),M81置0</td>
@@ -1679,7 +1684,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">INI[51]</td>
-<td style="text-align:center">内螺纹工件小径</td>
+<td style="text-align:center">内螺纹自动对刀-开关测量-测量位.X</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -2079,7 +2084,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">INI[131]</td>
-<td style="text-align:center">磨削中心：外圆测量合适角度</td>
+<td style="text-align:center">右端/外圆测量合适角度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -3378,6 +3383,11 @@ code {
 <td style="text-align:center"></td>
 </tr>
 <tr>
+<td style="text-align:center">PROCESS[122]</td>
+<td style="text-align:center">机械手-装夹中是否检测吹气清洁卡盘(0否1是)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
 <td style="text-align:center"><strong>工艺表格参数</strong></td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
@@ -4019,12 +4029,12 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[127]</td>
-<td style="text-align:center">磨削中心-测量模式选择(0测量反向孔/1测量右端小台阶)</td>
+<td style="text-align:center">内螺纹自动对刀-测量模式选择(0测量反向孔/1测量右端小台阶)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[128]</td>
-<td style="text-align:center">磨削中心-是否可选测量右端面小台阶(0否1是)</td>
+<td style="text-align:center">内螺纹自动对刀-是否可选测量右端面小台阶(0否1是)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -5955,6 +5965,16 @@ code {
 <tr>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">R100</td>
+<td style="text-align:center">机械手上料吹气时头架旋转转速</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">R101</td>
+<td style="text-align:center">机械手上料吹气时头架旋转保持时间</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>

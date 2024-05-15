@@ -1634,7 +1634,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">INI[41]</td>
-<td style="text-align:center">X轴工件夹装安全位置</td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -1759,7 +1759,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">INI[66]</td>
-<td style="text-align:center">砂轮中心到工件中心X坐标</td>
+<td style="text-align:center"></td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -2894,12 +2894,12 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">PROCESS[24]</td>
-<td style="text-align:center">内螺纹外圆磨削U轴进给速度</td>
+<td style="text-align:center">加工台阶一(0否1是)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">PROCESS[25]</td>
-<td style="text-align:center">内螺纹外圆磨削进给量</td>
+<td style="text-align:center">加工台阶二(0否1是)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -3049,12 +3049,12 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">PROCESS[55]</td>
-<td style="text-align:center">磨削中心:外圆上台阶的长度,从左端面算起</td>
+<td style="text-align:center">磨削中心:外圆上台阶距左端面</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">PROCESS[56]</td>
-<td style="text-align:center">磨削中心:外圆上的台阶深度</td>
+<td style="text-align:center">当前加工台阶工序(0台阶一 1台阶二)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -3314,7 +3314,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">PROCESS[108]</td>
-<td style="text-align:center">磨台阶当前磨削位置</td>
+<td style="text-align:center">磨台阶一当前磨削位置</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -3584,7 +3584,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[36]</td>
-<td style="text-align:center">台阶磨削初始位选择(0外圆当前接触/1外圆初始接触)</td>
+<td style="text-align:center">台阶一磨削初始位选择(0外圆当前接触/1外圆初始接触)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -4289,17 +4289,17 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[177]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">磨削中心-台阶二当前磨削位置</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[178]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">磨削中心-台阶二距离台阶一Z距离</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[179]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">磨削中心-台阶二终点补偿</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -4324,32 +4324,32 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[184]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二磨削初始位选择(0台阶一当前接触/1台阶一初始接触)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[185]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二台阶长度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[186]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二保持分段设置</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[187]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一粗磨磨削方式</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[188]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一粗磨磨削次数</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[189]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一粗磨进给深度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -4374,32 +4374,32 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[194]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一粗磨磨削速度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[195]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一粗磨砂轮线速度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[196]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一粗磨头架转速</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[197]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一粗磨砂轮转速</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[198]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一精磨磨削方式</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[199]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一精磨磨削次数</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -4424,32 +4424,32 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[204]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一精磨进给深度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[205]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一精磨磨削速度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[206]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一精磨砂轮线速度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[207]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一精磨头架转速</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[208]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶一精磨砂轮转速</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[209]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二粗磨磨削方式</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -4474,32 +4474,32 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[214]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二粗磨磨削次数</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[215]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二粗磨进给深度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[216]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二粗磨磨削速度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[217]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二粗磨砂轮线速度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[218]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二粗磨头架转速</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[219]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二粗磨砂轮转速</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -4524,32 +4524,32 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[224]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二精磨磨削方式</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[225]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二精磨磨削次数</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[226]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二精磨进给深度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[227]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二精磨磨削速度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[228]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二精磨砂轮线速度</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[229]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二精磨头架转速</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -4584,7 +4584,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[236]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">台阶二精磨砂轮转速</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -6529,27 +6529,27 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">SHAPE_MODEL[0]</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">外部修整程序位置(0内置/1后USB/2前USB/3 CF卡)</td>
+<td style="text-align:center">后部USB地址需要在逻辑驱动器中配置好，名称设置为 &quot;//DEV_3&quot;</td>
 </tr>
 <tr>
 <td style="text-align:center">SHAPE_MODEL[1]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">三角-左齿根圆弧半径</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">SHAPE_MODEL[2]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">三角-右齿根圆弧半径</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">SHAPE_MODEL[3]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">梯形-左齿根圆弧半径</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">SHAPE_MODEL[4]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">梯形-右齿根圆弧半径</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -7505,6 +7505,16 @@ code {
 <tr>
 <td style="text-align:center">SCREW_TAP[16]</td>
 <td style="text-align:center">B轴随动系数</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">STRING_ADDON[0]</td>
+<td style="text-align:center">外部程序调用文件夹目录</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>

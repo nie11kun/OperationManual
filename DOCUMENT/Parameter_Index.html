@@ -613,6 +613,56 @@ code {
 <td style="text-align:center">系统发给机器人,卡盘夹紧完成,M88置1(有效),M89置0</td>
 </tr>
 <tr>
+<td style="text-align:center"><strong>快速输入输出信号</strong></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">$A_IN[1]</td>
+<td style="text-align:center">在线测量-信号sr</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">$A_IN[2]</td>
+<td style="text-align:center">在线测量-信号st</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">$A_IN[3]</td>
+<td style="text-align:center">在线测量-信号f2</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">$A_IN[4]</td>
+<td style="text-align:center">在线测量-信号f3</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">$A_IN[10]</td>
+<td style="text-align:center">在线测量-自动模式信号</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">$A_IN[11]</td>
+<td style="text-align:center">在线测量-就绪信号</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">$A_IN[15]</td>
+<td style="text-align:center">粗磨消空程输入信号</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">$A_OUT[3]</td>
+<td style="text-align:center">在线测量-启动</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
 <td style="text-align:center"><strong>自动测量信号</strong></td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
@@ -640,51 +690,6 @@ code {
 <tr>
 <td style="text-align:center">DB2700.DBX1.0</td>
 <td style="text-align:center">测头信号状态</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>快速输入输出信号</strong></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">$A_IN[15]</td>
-<td style="text-align:center">粗磨消空程输入信号</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">$A_IN[4]</td>
-<td style="text-align:center">在线测量-信号f3</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">$A_IN[3]</td>
-<td style="text-align:center">在线测量-信号f2</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">$A_IN[2]</td>
-<td style="text-align:center">在线测量-信号st</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">$A_IN[1]</td>
-<td style="text-align:center">在线测量-信号sr</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">$A_IN[10]</td>
-<td style="text-align:center">在线测量-自动模式信号</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">$A_IN[11]</td>
-<td style="text-align:center">在线测量-就绪信号</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">$A_OUT[3]</td>
-<td style="text-align:center">在线测量-启动</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -3403,6 +3408,31 @@ code {
 <td style="text-align:center"></td>
 </tr>
 <tr>
+<td style="text-align:center">PROCESS[125]</td>
+<td style="text-align:center">大砂轮时-磨削几件后修整</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">PROCESS[126]</td>
+<td style="text-align:center">小砂轮时-磨削几件后修整</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">PROCESS[127]</td>
+<td style="text-align:center">砂轮直径分界-磨削几件后修整</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">PROCESS[128]</td>
+<td style="text-align:center">程序结束修整轮是否停止(0停/1不停转速保持/2不停且低速旋转)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">PROCESS[129]</td>
+<td style="text-align:center">修整轮不停低速旋转转速</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
 <td style="text-align:center"><strong>工艺表格参数</strong></td>
 <td style="text-align:center"></td>
 <td style="text-align:center"></td>
@@ -4880,6 +4910,11 @@ code {
 <tr>
 <td style="text-align:center">TECHNOLOGY[294]</td>
 <td style="text-align:center">粗磨消空程-空行程粗磨头架转速</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[295]</td>
+<td style="text-align:center">外圆在线测量使能(0否1是)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>

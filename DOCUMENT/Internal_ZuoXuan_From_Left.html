@@ -1,412 +1,401 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>README.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
+  <title>README</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <style type='text/css'>/* Base body styles */
 body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
+    /* Consolidated font stack */
+    font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* Base text color for the page */
+    color: #111;
+    /* Page background color */
+    background-color: #fbfbfb;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    padding: 30px;
 }
 
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 5px;
+    }
+    body>#content {
+        /* Using !important here, be mindful if further overrides are needed */
+        padding: 0px 20px 20px 20px !important;
+    }
 }
 
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+/* Main content container styling */
+body>#content {
+    margin: 0px auto; /* Simplified margin */
+    max-width: 900px;
+    border: 1px solid #e1e4e8;
+    padding: 10px 40px 20px 40px; /* Combined padding */
+    border-radius: 2px;
 }
 
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
+/* Details/Summary element styling */
+summary {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
-body.showEditorSelection .code-line {
-	position: relative;
+/* Horizontal rule styling */
+hr {
+    background-color: #bbb;
+    height: 1px;
+    margin: 1em 0;
+    padding: 0;
+    border: none;
 }
 
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
+/*
+ * NOTE: The .hljs-operator override was removed.
+ * It was likely a symptom of the color conflicts.
+ * If specific operator colors are still needed after fixing main conflicts,
+ * add specific overrides carefully based on the chosen theme.
+ */
+/*
+.hljs-operator {
+    color: #868686;
 }
+*/
 
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
+/**
+ * Links
+ */
 a {
-	text-decoration: none;
+    color: #0366d6;
+    text-decoration: none;
+}
+
+/* :visited style same as a, can be combined if desired */
+a:visited {
+    color: #0366d6;
 }
 
 a:hover {
-	text-decoration: underline;
+    color: #0366d6;
+    text-decoration: underline;
 }
 
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
+/**
+ * Code blocks container (<pre>)
+ * IMPORTANT: background-color removed to allow Highlight.js dark themes
+ * to control the background. If you want a light background for code,
+ * remove this comment and use a LIGHT Highlight.js theme instead.
+ */
+pre {
+    /* background-color: #f6f8fa; */ /* REMOVED for dark theme compatibility */
+    border-radius: 3px;
+    font-size: 85%; /* Makes text slightly smaller than surrounding text */
+    line-height: 1.45;
+    overflow: auto; /* Adds scrollbars if code overflows */
+    padding: 16px;
+    /* Optional: Add a subtle border if needed when background is controlled by theme */
+    /* border: 1px solid #333; */
 }
 
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
+/**
+ * Inline code (not in <pre>)
+ */
 code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
+    background-color: rgba(27, 31, 35, .05); /* Subtle background for inline code */
+    border-radius: 3px;
+    font-size: 85%; /* Match pre's relative size */
+    margin: 0;
+    word-wrap: break-word; /* Allow inline code to wrap */
+    padding: .2em .4em;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
 }
 
-body.wordWrap pre {
-	white-space: pre-wrap;
+/**
+ * Code inside <pre> blocks - Resetting styles applied by the general 'code' rule
+ */
+pre > code {
+    background-color: transparent; /* Inherit background from pre (or theme) */
+    border: 0;
+    display: inline; /* Should technically be block or inline-block for layout consistency? Often okay as inline. */
+    font-size: 100%; /* Inherit font size from pre */
+    line-height: inherit; /* Inherit line height from pre */
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    word-wrap: normal; /* Prevent wrapping within the pre block unless intended */
 }
 
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
+
+/**
+ * Blockquotes
+ */
+blockquote {
+    margin-left: 30px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    padding: 0 1em;
+    color: #828282; /* Base color for blockquote text */
+    border-left: 4px solid #e8e8e8;
+    padding-left: 15px;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
 }
 
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
+/* Styles for elements *inside* blockquotes */
+blockquote * {
+    font-style: normal !important; /* Force non-italic */
+    letter-spacing: 0;
+    color: #6a737d !important; /* Override inherited color, using !important */
 }
 
-/** Theming */
 
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
+/**
+ * Tables
+ */
+table {
+    /* border-spacing: 2px; */ /* Usually overridden by border-collapse */
+    display: block; /* Needed for overflow */
+    font-size: 14px;
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 16px;
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
+td, th { /* Combined rule for td and th */
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
 }
 
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
+th {
+    font-weight: 600;
 }
 
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
+tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
 }
 
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
+table tr:nth-child(2n) {
+    background-color: #f6f8fa; /* Zebra striping */
 }
 
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
+
+/**
+ * Other elements
+ */
+img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
 }
 
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
+p {
+    line-height: 1.5; /* Match body line-height */
+    font-weight: 400;
+    font-size: 16px;
+    color: #24292e; /* Specific paragraph color */
+    margin-top: 0; /* Default spacing handled by margin-bottom */
+    margin-bottom: 16px; /* Consistent bottom margin */
 }
 
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
+ul, ol /* Added ol for ordered lists */ {
+    margin-top: 0;
+    margin-bottom: 16px; /* Consistent bottom margin */
+    padding-left: 2em; /* Indentation for lists */
 }
 
-</style>
+li {
+    color: #24292e; /* Specific list item color */
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
 
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+li + li {
+    margin-top: 0.25em; /* Spacing between list items */
+}
 
-/* Tomorrow Comment */
+/*
+ * NOTE: Removed the universal '*' selector rule that was setting color: #24292e;
+ * It conflicted with syntax highlighting themes. Base colors are set on body or specific elements.
+ */
+/*
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #24292e;
+}
+*/
+
+/* Redundant :visited rule removed as it's same as a */
+/*
+a:visited {
+    color: #0366d6;
+}
+*/
+
+/* Heading styles */
+h1,
+h2,
+h3,
+h4, /* Added h4, h5, h6 for consistency */
+h5,
+h6 {
+    margin-top: 24px; /* Space above headings */
+    margin-bottom: 16px; /* Space below headings */
+    font-weight: 600; /* Bolder headings */
+    line-height: 1.25;
+    color: #111; /* Base heading color */
+    border-bottom: 1px solid #eaecef; /* Underline for h1-h3 */
+    padding-bottom: .3em; /* Space between text and underline */
+}
+
+/* Remove border for lower-level headings */
+h4, h5, h6 {
+    border-bottom: none;
+}
+
+/* Font override for elements within highlighted code. Removed !important */
+code > * {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}</style>
+  <style type='text/css'>pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*
+
+Atom One Dark by Daniel Gamage
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+
+base:    #282c34
+mono-1:  #abb2bf
+mono-2:  #818896
+mono-3:  #5c6370
+hue-1:   #56b6c2
+hue-2:   #61aeee
+hue-3:   #c678dd
+hue-4:   #98c379
+hue-5:   #e06c75
+hue-5-2: #be5046
+hue-6:   #d19a66
+hue-6-2: #e6c07b
+
+*/
+.hljs {
+  color: #abb2bf;
+  background: #282c34
+}
 .hljs-comment,
 .hljs-quote {
-	color: #8e908c;
+  color: #5c6370;
+  font-style: italic
 }
-
-/* Tomorrow Red */
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #c678dd
+}
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75
+}
+.hljs-literal {
+  color: #56b6c2
+}
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: #98c379
+}
+.hljs-attr,
 .hljs-variable,
 .hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
-}
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
 .hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66
 }
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-addition {
-	color: #718c00;
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #61aeee
 }
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #e6c07b
 }
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
-}
-
 .hljs-emphasis {
-	font-style: italic;
+  font-style: italic
 }
-
 .hljs-strong {
-	font-weight: bold;
+  font-weight: bold
 }
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+.hljs-link {
+  text-decoration: underline
+}</style>
 </head>
 <body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
+  <div id='content'>
 <blockquote>
-<p>从 V3.15.1 版本开始可从配置界面直接切换</p>
+  <p>从 V3.15.1 版本开始可从配置界面直接切换</p>
 </blockquote>
 <p>默认情况下<strong>内螺纹</strong>无论左旋右旋都从<strong>右端向左端</strong>加工，如果需要左旋从工件<strong>左端向右端</strong>开始加工需要修改部分程序，下面做详细介绍。</p>
-<p><strong>注意，修改后部分功能失效，如：变螺距等</strong></p>
 <p><strong>C_PAR_INI</strong> 中将左右端赋值部分的内磨判断屏蔽掉，也就是只保留外磨赋值部分：</p>
-<pre class="hljs"><code><div>;工件磨削起点/终点
-;IF GRIND[0]==1;是内螺纹磨削               ;屏蔽
-;	INI[6]=INI[2]-RING[7];工件右端        ;屏蔽
-;	INI[7]=INI[1];工件左端                ;屏蔽
-;ELSE;不是内螺纹磨削                       ;屏蔽
-	IF INI[0]==1;左旋
-		INI[6]=INI[1];工件左端
-		INI[7]=INI[2];工件右端
-	ELSE;右旋
-		INI[6]=INI[2]-RING[7];工件右端
-		INI[7]=INI[1];工件左端
-	ENDIF
-;ENDIF                                   ;屏蔽
-</div></code></pre>
+<pre><code class="hljs"><span class="hljs-comment">;工件磨削起点/终点</span>
+<span class="hljs-comment">;IF GRIND[0]==1;是内螺纹磨削               ;屏蔽</span>
+<span class="hljs-comment">;    INI[6]=INI[2]-RING[7];工件右端        ;屏蔽</span>
+<span class="hljs-comment">;    INI[7]=INI[1];工件左端                ;屏蔽</span>
+<span class="hljs-comment">;ELSE;不是内螺纹磨削                       ;屏蔽</span>
+    IF INI[<span class="hljs-number">0</span>]<span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-comment">;左旋</span>
+        INI[<span class="hljs-number">6</span>]<span class="hljs-operator">=</span>INI[<span class="hljs-number">1</span>]<span class="hljs-comment">;工件左端</span>
+        INI[<span class="hljs-number">7</span>]<span class="hljs-operator">=</span>INI[<span class="hljs-number">2</span>]<span class="hljs-comment">;工件右端</span>
+    ELSE<span class="hljs-comment">;右旋</span>
+        INI[<span class="hljs-number">6</span>]<span class="hljs-operator">=</span>INI[<span class="hljs-number">2</span>]-RING[<span class="hljs-number">7</span>]<span class="hljs-comment">;工件右端</span>
+        INI[<span class="hljs-number">7</span>]<span class="hljs-operator">=</span>INI[<span class="hljs-number">1</span>]<span class="hljs-comment">;工件左端</span>
+    ENDIF
+<span class="hljs-comment">;ENDIF                                   ;屏蔽</span></code></pre>
 <p><strong>F_C_ANG_AT_CURNTZ_POS</strong> 中将左旋计算改为加法：</p>
-<pre class="hljs"><code><div>	IF INI[0]==1;左旋
-		C_ANG=TOOL_SET[4]+DR3    ;改为：+DR3
-	ELSE
-		C_ANG=TOOL_SET[4]+DR3
-	ENDIF
-</div></code></pre>
+<pre><code class="hljs">    <span class="hljs-keyword">IF</span> INI[0]==1;左旋
+        <span class="hljs-attribute">C_ANG</span>=TOOL_SET[4]+DR3    ;改为：+DR3
+    <span class="hljs-keyword">ELSE</span>
+        <span class="hljs-attribute">C_ANG</span>=TOOL_SET[4]+DR3
+    ENDIF</code></pre>
 <p><strong>F_C_START_ANG_FROM_ZC</strong> 中将左旋计算改为减法：</p>
-<pre class="hljs"><code><div>	IF INI[0]==1;左旋
-		TOOL_SET[4]=C_ANG-DR3      ;;改为：-DR3
-	ELSE
-		TOOL_SET[4]=C_ANG-DR3
-	ENDIF
-</div></code></pre>
+<pre><code class="hljs">    IF INI[<span class="hljs-number">0</span>]<span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-comment">;左旋</span>
+        TOOL_SET[<span class="hljs-number">4</span>]<span class="hljs-operator">=</span>C_ANG-DR3      <span class="hljs-comment">;;改为：-DR3</span>
+    ELSE
+        TOOL_SET[<span class="hljs-number">4</span>]<span class="hljs-operator">=</span>C_ANG-DR3
+    ENDIF</code></pre>
 <p><strong>C_OPERATION_AUTO</strong> 中将左旋计算改为减法：</p>
-<pre class="hljs"><code><div>IF INI[0]==1;左旋
-    TOOL_SET[4]=TOOL_SET[5]-DR31       ;改为：-DR31
+<pre><code class="hljs">IF INI[<span class="hljs-number">0</span>]<span class="hljs-operator">=</span><span class="hljs-operator">=</span><span class="hljs-number">1</span><span class="hljs-comment">;左旋</span>
+    TOOL_SET[<span class="hljs-number">4</span>]<span class="hljs-operator">=</span>TOOL_SET[<span class="hljs-number">5</span>]-DR31       <span class="hljs-comment">;改为：-DR31</span>
 ELSE
-    TOOL_SET[4]=TOOL_SET[5]-DR31
-ENDIF
-</div></code></pre>
+    TOOL_SET[<span class="hljs-number">4</span>]<span class="hljs-operator">=</span>TOOL_SET[<span class="hljs-number">5</span>]-DR31
+ENDIF</code></pre>
 <p>以上就是内螺纹修改左旋磨削位置的方法。</p>
-
+  </div>
 </body>
 </html>

@@ -1,425 +1,393 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>README.md</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
+  <title>README</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <style type='text/css'>/* Base body styles */
 body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
+    /* Consolidated font stack */
+    font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /* Base text color for the page */
+    color: #111;
+    /* Page background color */
+    background-color: #fbfbfb;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    padding: 30px;
 }
 
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 5px;
+    }
+    body>#content {
+        /* Using !important here, be mindful if further overrides are needed */
+        padding: 0px 20px 20px 20px !important;
+    }
 }
 
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+/* Main content container styling */
+body>#content {
+    margin: 0px auto; /* Simplified margin */
+    max-width: 900px;
+    border: 1px solid #e1e4e8;
+    padding: 10px 40px 20px 40px; /* Combined padding */
+    border-radius: 2px;
 }
 
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
+/* Details/Summary element styling */
+summary {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
-body.showEditorSelection .code-line {
-	position: relative;
+/* Horizontal rule styling */
+hr {
+    background-color: #bbb;
+    height: 1px;
+    margin: 1em 0;
+    padding: 0;
+    border: none;
 }
 
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
+/*
+ * NOTE: The .hljs-operator override was removed.
+ * It was likely a symptom of the color conflicts.
+ * If specific operator colors are still needed after fixing main conflicts,
+ * add specific overrides carefully based on the chosen theme.
+ */
+/*
+.hljs-operator {
+    color: #868686;
 }
+*/
 
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-img {
-	max-width: 100%;
-	max-height: 100%;
-}
-
+/**
+ * Links
+ */
 a {
-	text-decoration: none;
+    color: #0366d6;
+    text-decoration: none;
+}
+
+/* :visited style same as a, can be combined if desired */
+a:visited {
+    color: #0366d6;
 }
 
 a:hover {
-	text-decoration: underline;
+    color: #0366d6;
+    text-decoration: underline;
 }
 
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
+/**
+ * Code blocks container (<pre>)
+ * IMPORTANT: background-color removed to allow Highlight.js dark themes
+ * to control the background. If you want a light background for code,
+ * remove this comment and use a LIGHT Highlight.js theme instead.
+ */
+pre {
+    /* background-color: #f6f8fa; */ /* REMOVED for dark theme compatibility */
+    border-radius: 3px;
+    font-size: 85%; /* Makes text slightly smaller than surrounding text */
+    line-height: 1.45;
+    overflow: auto; /* Adds scrollbars if code overflows */
+    padding: 16px;
+    /* Optional: Add a subtle border if needed when background is controlled by theme */
+    /* border: 1px solid #333; */
 }
 
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-}
-
-h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-}
-
-h1, h2, h3 {
-	font-weight: normal;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-table > thead > tr > th {
-	text-align: left;
-	border-bottom: 1px solid;
-}
-
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
-}
-
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
-}
-
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
-}
-
+/**
+ * Inline code (not in <pre>)
+ */
 code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
+    background-color: rgba(27, 31, 35, .05); /* Subtle background for inline code */
+    border-radius: 3px;
+    font-size: 85%; /* Match pre's relative size */
+    margin: 0;
+    word-wrap: break-word; /* Allow inline code to wrap */
+    padding: .2em .4em;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
 }
 
-body.wordWrap pre {
-	white-space: pre-wrap;
+/**
+ * Code inside <pre> blocks - Resetting styles applied by the general 'code' rule
+ */
+pre > code {
+    background-color: transparent; /* Inherit background from pre (or theme) */
+    border: 0;
+    display: inline; /* Should technically be block or inline-block for layout consistency? Often okay as inline. */
+    font-size: 100%; /* Inherit font size from pre */
+    line-height: inherit; /* Inherit line height from pre */
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    word-wrap: normal; /* Prevent wrapping within the pre block unless intended */
 }
 
-pre:not(.hljs),
-pre.hljs code > div {
-	padding: 16px;
-	border-radius: 3px;
-	overflow: auto;
+
+/**
+ * Blockquotes
+ */
+blockquote {
+    margin-left: 30px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    padding: 0 1em;
+    color: #828282; /* Base color for blockquote text */
+    border-left: 4px solid #e8e8e8;
+    padding-left: 15px;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
 }
 
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
+/* Styles for elements *inside* blockquotes */
+blockquote * {
+    font-style: normal !important; /* Force non-italic */
+    letter-spacing: 0;
+    color: #6a737d !important; /* Override inherited color, using !important */
 }
 
-/** Theming */
 
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
+/**
+ * Tables
+ */
+table {
+    /* border-spacing: 2px; */ /* Usually overridden by border-collapse */
+    font-size: 14px;
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 16px;
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
+td, th { /* Combined rule for td and th */
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
 }
 
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
+th {
+    font-weight: 600;
 }
 
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
+tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
 }
 
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
+table tr:nth-child(2n) {
+    background-color: #f6f8fa; /* Zebra striping */
 }
 
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
+
+/**
+ * Other elements
+ */
+img {
+    width: 100%;      /* 设置宽度为容器的100% */
+    height: auto;     /* 高度自动缩放，防止图片变形 */
+    display: block;   /* 确保图片是块级元素，避免下方出现多余空隙 */
+    margin-top: 1em;    /* 与上方内容保持一些间距 */
+    margin-bottom: 1em; /* 与下方内容保持一些间距 */
 }
 
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
+p {
+    line-height: 1.5; /* Match body line-height */
+    font-weight: 400;
+    font-size: 16px;
+    color: #24292e; /* Specific paragraph color */
+    margin-top: 0; /* Default spacing handled by margin-bottom */
+    margin-bottom: 16px; /* Consistent bottom margin */
 }
 
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
+ul, ol /* Added ol for ordered lists */ {
+    margin-top: 0;
+    margin-bottom: 16px; /* Consistent bottom margin */
+    padding-left: 2em; /* Indentation for lists */
 }
 
-</style>
+li {
+    color: #24292e; /* Specific list item color */
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
 
-<style>
+li + li {
+    margin-top: 0.25em; /* Spacing between list items */
+}
+
 /*
-
-github.com style (c) Vasily Polovnyov <vast@whiteants.net>
-
+ * NOTE: Removed the universal '*' selector rule that was setting color: #24292e;
+ * It conflicted with syntax highlighting themes. Base colors are set on body or specific elements.
+ */
+/*
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #24292e;
+}
 */
 
-.hljs {
+/* Redundant :visited rule removed as it's same as a */
+/*
+a:visited {
+    color: #0366d6;
+}
+*/
+
+/* Heading styles */
+h1,
+h2,
+h3,
+h4, /* Added h4, h5, h6 for consistency */
+h5,
+h6 {
+    margin-top: 24px; /* Space above headings */
+    margin-bottom: 16px; /* Space below headings */
+    font-weight: 600; /* Bolder headings */
+    line-height: 1.25;
+    color: #111; /* Base heading color */
+    border-bottom: 1px solid #eaecef; /* Underline for h1-h3 */
+    padding-bottom: .3em; /* Space between text and underline */
+}
+
+/* Remove border for lower-level headings */
+h4, h5, h6 {
+    border-bottom: none;
+}
+
+/* Font override for elements within highlighted code. Removed !important */
+code > * {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.mermaid {
+    display: flex;       /* 使用 Flexbox 布局 */
+    justify-content: center; /* 水平居中子元素 */
+}</style>
+  <style type='text/css'>pre code.hljs {
   display: block;
   overflow-x: auto;
-  padding: 0.5em;
-  color: #333;
-  background: #f8f8f8;
+  padding: 1em
 }
+code.hljs {
+  padding: 3px 5px
+}
+/*
 
+Atom One Dark by Daniel Gamage
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+
+base:    #282c34
+mono-1:  #abb2bf
+mono-2:  #818896
+mono-3:  #5c6370
+hue-1:   #56b6c2
+hue-2:   #61aeee
+hue-3:   #c678dd
+hue-4:   #98c379
+hue-5:   #e06c75
+hue-5-2: #be5046
+hue-6:   #d19a66
+hue-6-2: #e6c07b
+
+*/
+.hljs {
+  color: #abb2bf;
+  background: #282c34
+}
 .hljs-comment,
 .hljs-quote {
-  color: #998;
-  font-style: italic;
+  color: #5c6370;
+  font-style: italic
 }
-
+.hljs-doctag,
 .hljs-keyword,
-.hljs-selector-tag,
-.hljs-subst {
-  color: #333;
-  font-weight: bold;
+.hljs-formula {
+  color: #c678dd
 }
-
-.hljs-number,
-.hljs-literal,
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75
+}
+.hljs-literal {
+  color: #56b6c2
+}
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: #98c379
+}
+.hljs-attr,
 .hljs-variable,
 .hljs-template-variable,
-.hljs-tag .hljs-attr {
-  color: #008080;
-}
-
-.hljs-string,
-.hljs-doctag {
-  color: #d14;
-}
-
-.hljs-title,
-.hljs-section,
-.hljs-selector-id {
-  color: #900;
-  font-weight: bold;
-}
-
-.hljs-subst {
-  font-weight: normal;
-}
-
 .hljs-type,
-.hljs-class .hljs-title {
-  color: #458;
-  font-weight: bold;
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66
 }
-
-.hljs-tag,
-.hljs-name,
-.hljs-attribute {
-  color: #000080;
-  font-weight: normal;
-}
-
-.hljs-regexp,
-.hljs-link {
-  color: #009926;
-}
-
 .hljs-symbol,
-.hljs-bullet {
-  color: #990073;
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #61aeee
 }
-
 .hljs-built_in,
-.hljs-builtin-name {
-  color: #0086b3;
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #e6c07b
 }
-
-.hljs-meta {
-  color: #999;
-  font-weight: bold;
-}
-
-.hljs-deletion {
-  background: #fdd;
-}
-
-.hljs-addition {
-  background: #dfd;
-}
-
 .hljs-emphasis {
-  font-style: italic;
+  font-style: italic
 }
-
 .hljs-strong {
-  font-weight: bold;
+  font-weight: bold
 }
-
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
-}
-
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
-}
-
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
-}
-
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
-}
-
-.emoji {
-	height: 1.4em;
-}
-
-code {
-	font-size: 14px;
-	line-height: 19px;
-}
-
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
-}
-
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
-}
-
-</style>
-
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+.hljs-link {
+  text-decoration: underline
+}</style>
 </head>
 <body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h1 id=""></h1>
-<p><img src="https://i.imgur.com/4MfwYqL.jpg" alt="Icon"></p>
+  <div id='content'>
+<p>#</p>
+<p><img src="https://i.imgur.com/4MfwYqL.jpg" alt="Icon" /></p>
 <p>workstation only for HJMT Programing segment</p>
-<p><a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a> <a href="https://github.com/996icu/996.ICU/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Anti 996-blue.svg" alt="LICENSE"></a></p>
-<h2 id="intro-smile">Intro <img class="emoji" alt="smile" src="data:image/png;base64,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" /></h2>
+<p><a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" /></a> <a href="https://github.com/996icu/996.ICU/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-Anti%20996-blue.svg" alt="LICENSE" /></a></p>
+<h2 id="intro-smile">Intro 😄</h2>
 <ul>
 <li>The project design to quick build the machine program which may has different spicificaton.</li>
 <li>There has an friendly interface to guide you creat you special needs, all you needed were type few word and choice the machine sctructs and then process it.</li>
 </ul>
-<h2 id="%E6%9C%BA%E5%BA%8A%E5%8F%AF%E9%80%89%E7%B1%BB%E5%9E%8B">机床可选类型</h2>
+<h2 id="机床可选类型">机床可选类型</h2>
 <ul>
 <li>机床类型: 外螺纹 内螺纹 丝锥 蜗杆</li>
 <li>修整器类型: vw(外) v(外) xz x_后(内) xw 液压修整(外)</li>
 <li>修整轮类型: 单滚轮/方滚轮 双滚轮</li>
 <li>选择齿形: 三角/梯形/双圆弧 双圆弧</li>
 <li>是否有二次对刀(外)</li>
-<li>是否有自动对刀
-<ul>
+<li>是否有自动对刀<ul>
 <li>自动对刀机构类型: 接近开关 测量头 开关和测头</li>
-<li>测头测量时测量孔位置：工件正面 工件背面</li>
-</ul>
-</li>
-<li>是否是磨削中心
-<ul>
+<li>测头测量时测量孔位置：工件正面 工件背面</li></ul></li>
+<li>是否是磨削中心<ul>
 <li>是否有U轴</li>
-<li>无U轴时外磨砂轮结构：后置 前置</li>
-</ul>
-</li>
+<li>无U轴时外磨砂轮结构：后置 前置</li></ul></li>
 <li>是否有A轴</li>
 <li>砂轮驱动器类型: 西门子伺服 变频器/普通电机</li>
 <li>修整轮驱动器类型: 西门子伺服 变频器/普通电机</li>
@@ -427,516 +395,520 @@ code {
 </ul>
 <h2 id="build-guide">Build Guide</h2>
 <p>视频演示: <a href="https://niekun.net/cloud/media/HorizonJuicerCreatorGuide.mp4">点击播放</a></p>
-<h2 id="%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%88%90">程序生成</h2>
+<h2 id="程序生成">程序生成</h2>
 <ol>
 <li>运行 <strong>HorizonJuicerCreator</strong></li>
 <li><strong>打开</strong> - <strong>设置</strong> 配置源仓库路径及生成路径，源仓库目录层级到 <strong>Horizon-Juicer</strong> 文件夹即可</li>
-<li>选择 <strong>配置机床</strong></li>
+<li>选择 <strong>配置机床</strong> </li>
 <li>输入 <strong>机床信息</strong> 及 <strong>其他配置</strong></li>
 <li>定义 <strong>机床配置</strong></li>
 <li>点击 <strong>程序生成</strong></li>
 <li>生成成功后会自动打开所在目录</li>
 </ol>
-<h2 id="%E6%9C%BA%E5%BA%8A%E5%AF%BC%E5%85%A5">机床导入</h2>
+<h2 id="机床导入">机床导入</h2>
 <ul>
-<li>配置好的机床目录内有两个文件夹：<strong>NC-Data</strong>、<strong>System-CF-Card</strong>
-<ul>
+<li>配置好的机床目录内有两个文件夹：<strong>NC-Data</strong>、<strong>System-CF-Card</strong><ul>
 <li><strong>NC-Data</strong> 存放 NC 加工程序相关内容：<strong>MPF</strong>、<strong>CMA</strong>、<strong>DEF</strong>，分别拷入系统 <strong>NC-Data</strong> 对应目录内</li>
-<li><strong>System-CF-Card</strong> 存放 HMI 及系统配置文件，有 <strong>user</strong>、<strong>oem</strong>、<strong>siemens</strong> 三个文件夹，分别拷入系统 <strong>System-CF-Card</strong> 对应目录内</li>
-</ul>
-</li>
+<li><strong>System-CF-Card</strong> 存放 HMI 及系统配置文件，有 <strong>user</strong>、<strong>oem</strong>、<strong>siemens</strong> 三个文件夹，分别拷入系统 <strong>System-CF-Card</strong> 对应目录内</li></ul></li>
 <li><strong>DEF</strong> 文件导入机床后激活需要激活才能生效</li>
 <li>导入 NC 程序后需要重启 NC，导入界面后需重启 HMI</li>
 <li>载入变量表： 诊断 -&gt; NC/PLC变量 -&gt; 载入变量表</li>
 <li>进入 custom 主界面点击 VS9 <strong>机床配置</strong>，点击<strong>重置配置</strong>初始化机床配置，然后根据需要设置需要启用的功能</li>
-<li><strong>user</strong> 目录内配置文件的功能：
-<ul>
+<li><strong>user</strong> 目录内配置文件的功能：<ul>
 <li>NC-PLC 变量表：<code>user/sinumerik/hmi/template/variables/NC_PLC-variates.xml</code></li>
 <li>VNC 远程连接： <code>user/system/etc/sinumerikvnc.ini</code></li>
-<li>前置 USB 备份数据： <code>user/sinumerik/nck/extdev.ini</code></li>
-</ul>
-</li>
+<li>前置 USB 备份数据： <code>user/sinumerik/nck/extdev.ini</code></li></ul></li>
 <li>HMI 在线帮助：若在线帮助hlp进行了修改，需删除<code>siemens/sinumerik/sys_cache/hmi/</code>目录下hlp文件夹并重启HMI</li>
 </ul>
-<h2 id="%E6%9C%BA%E5%BA%8A%E5%8F%AF%E9%80%89%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E9%9C%80%E5%9C%A8%E6%9C%BA%E5%BA%8A%E9%85%8D%E7%BD%AE%E7%95%8C%E9%9D%A2%E4%BF%AE%E6%94%B9%E9%83%A8%E5%88%86%E5%8F%82%E6%95%B0%E6%A0%B9%E6%8D%AE%E6%9C%BA%E5%BA%8A%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E8%AE%BE%E7%BD%AE">机床可选配置参数：(需在机床配置界面修改，部分参数根据机床配置自动设置)</h2>
+<h2 id="机床可选配置参数：需在机床配置界面修改，部分参数根据机床配置自动设置">机床可选配置参数：(需在机床配置界面修改，部分参数根据机床配置自动设置)</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
-<th style="text-align:center"></th>
+<th id="" style="text-align:center;"></th>
+<th id="" style="text-align:center;"></th>
+<th id="" style="text-align:center;"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><strong>磨削相关</strong></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center;"><strong>磨削相关</strong></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
 </tr>
 <tr>
-<td style="text-align:center">螺旋升角使能(0没有/1有)</td>
-<td style="text-align:center">INI[16]</td>
-<td style="text-align:center">根据配置自动预设</td>
+<td style="text-align:center;">螺旋升角使能(0没有/1有)</td>
+<td style="text-align:center;">INI[16]</td>
+<td style="text-align:center;">根据配置自动预设</td>
 </tr>
 <tr>
-<td style="text-align:center">砂轮类型选择(0模拟量/1伺服)</td>
-<td style="text-align:center">INI[36]</td>
-<td style="text-align:center">根据配置自动预设</td>
+<td style="text-align:center;">砂轮类型选择(0模拟量/1伺服)</td>
+<td style="text-align:center;">INI[36]</td>
+<td style="text-align:center;">根据配置自动预设</td>
 </tr>
 <tr>
-<td style="text-align:center">程序结束砂轮是否停止</td>
-<td style="text-align:center">INI[79]</td>
-<td style="text-align:center">预设为 0 (0停/1不停转速保持/2不停且低速旋转)</td>
+<td style="text-align:center;">程序结束砂轮是否停止</td>
+<td style="text-align:center;">INI[79]</td>
+<td style="text-align:center;">预设为 0 (0停/1不停转速保持/2不停且低速旋转)</td>
 </tr>
 <tr>
-<td style="text-align:center">砂轮不停低速旋转转速</td>
-<td style="text-align:center">TECHNOLOGY[9]</td>
-<td style="text-align:center">外磨预设 1000，内磨预设 5000</td>
+<td style="text-align:center;">砂轮不停低速旋转转速</td>
+<td style="text-align:center;">TECHNOLOGY[9]</td>
+<td style="text-align:center;">外磨预设 1000，内磨预设 5000</td>
 </tr>
 <tr>
-<td style="text-align:center">界面头数修整参数显示</td>
-<td style="text-align:center">WORK[4]</td>
-<td style="text-align:center">预设为 0</td>
+<td style="text-align:center;">界面头数修整参数显示</td>
+<td style="text-align:center;">WORK[4]</td>
+<td style="text-align:center;">预设为 0</td>
 </tr>
 <tr>
-<td style="text-align:center">恒转速模式</td>
-<td style="text-align:center">INI[144]</td>
-<td style="text-align:center">预设为 0</td>
+<td style="text-align:center;">恒转速模式</td>
+<td style="text-align:center;">INI[144]</td>
+<td style="text-align:center;">预设为 0</td>
 </tr>
 <tr>
-<td style="text-align:center">扩展工艺</td>
-<td style="text-align:center">PROCESS[15]</td>
-<td style="text-align:center">预设为 0</td>
+<td style="text-align:center;">扩展工艺</td>
+<td style="text-align:center;">PROCESS[15]</td>
+<td style="text-align:center;">预设为 0</td>
 </tr>
 <tr>
-<td style="text-align:center">环形槽激活</td>
-<td style="text-align:center">RING[49]</td>
-<td style="text-align:center">预设为 0</td>
+<td style="text-align:center;">环形槽激活</td>
+<td style="text-align:center;">RING[49]</td>
+<td style="text-align:center;">预设为 0</td>
 </tr>
 <tr>
-<td style="text-align:center">三线测量参数显示</td>
-<td style="text-align:center">INI[148]</td>
-<td style="text-align:center">预设为 0 (外磨不显示)</td>
+<td style="text-align:center;">三线测量参数显示</td>
+<td style="text-align:center;">INI[148]</td>
+<td style="text-align:center;">预设为 0 (外磨不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">转完A轴不关闭液压</td>
-<td style="text-align:center">INI[158]</td>
-<td style="text-align:center">预设为 1 (没有A轴不显示)</td>
+<td style="text-align:center;">转完A轴不关闭液压</td>
+<td style="text-align:center;">INI[158]</td>
+<td style="text-align:center;">预设为 1 (没有A轴不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">工艺界面粗磨量自动计算</td>
-<td style="text-align:center">TECHNOLOGY[233]</td>
-<td style="text-align:center">预设为 0</td>
+<td style="text-align:center;">工艺界面粗磨量自动计算</td>
+<td style="text-align:center;">TECHNOLOGY[233]</td>
+<td style="text-align:center;">预设为 0</td>
 </tr>
 <tr>
-<td style="text-align:center">内螺纹螺旋退出方式(需先切换到螺旋退出)</td>
-<td style="text-align:center">TECHNOLOGY[234]</td>
-<td style="text-align:center">预设为 0 (0退到中心/1后退固定距离) (外磨不显示)</td>
+<td style="text-align:center;">内螺纹螺旋退出方式(需先切换到螺旋退出)</td>
+<td style="text-align:center;">TECHNOLOGY[234]</td>
+<td style="text-align:center;">预设为 0 (0退到中心/1后退固定距离) (外磨不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">内螺纹螺旋退出方式为后退固定距离时的距离</td>
-<td style="text-align:center">TECHNOLOGY[235]</td>
-<td style="text-align:center">预设为 0.2 (外磨不显示)</td>
+<td style="text-align:center;">内螺纹螺旋退出方式为后退固定距离时的距离</td>
+<td style="text-align:center;">TECHNOLOGY[235]</td>
+<td style="text-align:center;">预设为 0.2 (外磨不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">磨削中每次修整对磨削位置补偿量界面参数显示</td>
-<td style="text-align:center">DRESSER[58]</td>
-<td style="text-align:center">预设为 0 (补偿量输入正值为坐标轴正向补偿)</td>
+<td style="text-align:center;">磨削中每次修整对磨削位置补偿量界面参数显示</td>
+<td style="text-align:center;">DRESSER[58]</td>
+<td style="text-align:center;">预设为 0 (补偿量输入正值为坐标轴正向补偿)</td>
 </tr>
 <tr>
-<td style="text-align:center">内螺纹头架防护罩自动控制</td>
-<td style="text-align:center">PROCESS[120]</td>
-<td style="text-align:center">预设为 0 (0无1有) (外磨不显示)</td>
+<td style="text-align:center;">内螺纹头架防护罩自动控制</td>
+<td style="text-align:center;">PROCESS[120]</td>
+<td style="text-align:center;">预设为 0 (0无1有) (外磨不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">内螺纹正向进刀磨削</td>
-<td style="text-align:center">WORK[7]</td>
-<td style="text-align:center">预设为 0 (0否1是) (外磨不显示)</td>
+<td style="text-align:center;">内螺纹正向进刀磨削</td>
+<td style="text-align:center;">WORK[7]</td>
+<td style="text-align:center;">预设为 0 (0否1是) (外磨不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">内螺纹左旋从工件左侧加工</td>
-<td style="text-align:center">TECHNOLOGY[65]</td>
-<td style="text-align:center">预设为 0 (0否1是) (外磨不显示)</td>
+<td style="text-align:center;">内螺纹左旋从工件左侧加工</td>
+<td style="text-align:center;">TECHNOLOGY[65]</td>
+<td style="text-align:center;">预设为 0 (0否1是) (外磨不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">外螺纹左旋从工件右侧加工</td>
-<td style="text-align:center">TECHNOLOGY[168]</td>
-<td style="text-align:center">预设为 0 (0否1是) (内磨不显示)</td>
+<td style="text-align:center;">外螺纹左旋从工件右侧加工</td>
+<td style="text-align:center;">TECHNOLOGY[168]</td>
+<td style="text-align:center;">预设为 0 (0否1是) (内磨不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">程序结束是否关闭修整/对刀键</td>
-<td style="text-align:center">INI[70]</td>
-<td style="text-align:center">预设为 1 (0否/1是)</td>
+<td style="text-align:center;">程序结束是否关闭修整/对刀键</td>
+<td style="text-align:center;">INI[70]</td>
+<td style="text-align:center;">预设为 1 (0否/1是)</td>
 </tr>
 <tr>
-<td style="text-align:center">是否有自动门</td>
-<td style="text-align:center">PROCESS[52]</td>
-<td style="text-align:center">预设为 0 (0否1是)</td>
+<td style="text-align:center;">是否有自动门</td>
+<td style="text-align:center;">PROCESS[52]</td>
+<td style="text-align:center;">预设为 0 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center">自动门选择</td>
-<td style="text-align:center">TECHNOLOGY[59]</td>
-<td style="text-align:center">预设为 1 (自动门1/自动门2)</td>
+<td style="text-align:center;">自动门选择</td>
+<td style="text-align:center;">TECHNOLOGY[59]</td>
+<td style="text-align:center;">预设为 1 (自动门1/自动门2)</td>
 </tr>
 <tr>
-<td style="text-align:center">自动门是否检测开关信号</td>
-<td style="text-align:center">TECHNOLOGY[64]</td>
-<td style="text-align:center">预设为 1 (0不检测/1检测)</td>
+<td style="text-align:center;">自动门是否检测开关信号</td>
+<td style="text-align:center;">TECHNOLOGY[64]</td>
+<td style="text-align:center;">预设为 1 (0不检测/1检测)</td>
 </tr>
 <tr>
-<td style="text-align:center">粗磨消空程</td>
-<td style="text-align:center">TECHNOLOGY[293]</td>
-<td style="text-align:center">预设为 0 (0否1是)</td>
+<td style="text-align:center;">粗磨消空程</td>
+<td style="text-align:center;">TECHNOLOGY[293]</td>
+<td style="text-align:center;">预设为 0 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center">批量磨削-起始加工工序选择功能</td>
-<td style="text-align:center">SHAPE_MODEL[63]</td>
-<td style="text-align:center">预设为 0 (0否1是)</td>
+<td style="text-align:center;">批量磨削-起始加工工序选择功能</td>
+<td style="text-align:center;">SHAPE_MODEL[63]</td>
+<td style="text-align:center;">预设为 0 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center">断电回退使能</td>
-<td style="text-align:center">TECHNOLOGY[299]</td>
-<td style="text-align:center">预设为 0 (0否1是)</td>
+<td style="text-align:center;">断电回退使能</td>
+<td style="text-align:center;">TECHNOLOGY[299]</td>
+<td style="text-align:center;">预设为 0 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center;">磨削冷却附加通道选择</td>
+<td style="text-align:center;">TECHNOLOGY[307]</td>
+<td style="text-align:center;">预设为 0 (0无/1-M28/2-M38)</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>修整相关</strong></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
 </tr>
 <tr>
-<td style="text-align:center">修整轮类型选择</td>
-<td style="text-align:center">INI[37]</td>
-<td style="text-align:center">根据配置自动预设 (0模拟量/1伺服)</td>
+<td style="text-align:center;"><strong>修整相关</strong></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
 </tr>
 <tr>
-<td style="text-align:center">程序结束修整轮是否停止</td>
-<td style="text-align:center">PROCESS[128]</td>
-<td style="text-align:center">预设为 0 (0停/1不停转速保持/2不停且低速旋转)</td>
+<td style="text-align:center;">修整轮类型选择</td>
+<td style="text-align:center;">INI[37]</td>
+<td style="text-align:center;">根据配置自动预设 (0模拟量/1伺服)</td>
 </tr>
 <tr>
-<td style="text-align:center">修整轮不停低速旋转转速</td>
-<td style="text-align:center">PROCESS[129]</td>
-<td style="text-align:center">预设 800</td>
+<td style="text-align:center;">程序结束修整轮是否停止</td>
+<td style="text-align:center;">PROCESS[128]</td>
+<td style="text-align:center;">预设为 0 (0停/1不停转速保持/2不停且低速旋转)</td>
 </tr>
 <tr>
-<td style="text-align:center">新砂轮插补修整模式</td>
-<td style="text-align:center">INI[88]</td>
-<td style="text-align:center">预设为 0 (0抬齿高/1偏半个砂轮宽度)</td>
+<td style="text-align:center;">修整轮不停低速旋转转速</td>
+<td style="text-align:center;">PROCESS[129]</td>
+<td style="text-align:center;">预设 800</td>
 </tr>
 <tr>
-<td style="text-align:center">修整时A轴角度调整参数显示</td>
-<td style="text-align:center">INI[154]</td>
-<td style="text-align:center">预设为 0 (没有A轴不显示)</td>
+<td style="text-align:center;">新砂轮插补修整模式</td>
+<td style="text-align:center;">INI[88]</td>
+<td style="text-align:center;">预设为 0 (0抬齿高/1偏半个砂轮宽度)</td>
 </tr>
 <tr>
-<td style="text-align:center">内螺纹新砂轮是否是成型砂轮界面参数显示</td>
-<td style="text-align:center">TECHNOLOGY[58]</td>
-<td style="text-align:center">预设为 0 (外螺纹不显示)</td>
+<td style="text-align:center;">修整时A轴角度调整参数显示</td>
+<td style="text-align:center;">INI[154]</td>
+<td style="text-align:center;">预设为 0 (没有A轴不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">修整轮反向旋转</td>
-<td style="text-align:center">INI[155]</td>
-<td style="text-align:center">预设为 0</td>
+<td style="text-align:center;">内螺纹新砂轮是否是成型砂轮界面参数显示</td>
+<td style="text-align:center;">TECHNOLOGY[58]</td>
+<td style="text-align:center;">预设为 0 (外螺纹不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">外部齿形程序界面参数显示</td>
-<td style="text-align:center">DRESSER[110]</td>
-<td style="text-align:center">预设为 0 (0否1是) (修整界面显示切换开关及输入外部程序名称 变量名:SHAPE_EXTERNAL)</td>
+<td style="text-align:center;">修整轮反向旋转</td>
+<td style="text-align:center;">INI[155]</td>
+<td style="text-align:center;">预设为 0</td>
 </tr>
 <tr>
-<td style="text-align:center">外部齿型程序无外围延长部分修整</td>
-<td style="text-align:center">DRESSER[106]</td>
-<td style="text-align:center">预设为 0 (0有1无) (如果有则使用外部程序内部预设延长长度 DRESSER[99])</td>
+<td style="text-align:center;">外部齿形程序界面参数显示</td>
+<td style="text-align:center;">DRESSER[110]</td>
+<td style="text-align:center;">预设为 0 (0否1是) (修整界面显示切换开关及输入外部程序名称 变量名:SHAPE_EXTERNAL)</td>
 </tr>
 <tr>
-<td style="text-align:center">执行修整中每20次重新运行砂轮转速子程序</td>
-<td style="text-align:center">INI[111]</td>
-<td style="text-align:center">预设为 0 (默认0为跳过)</td>
+<td style="text-align:center;">外部齿型程序无外围延长部分修整</td>
+<td style="text-align:center;">DRESSER[106]</td>
+<td style="text-align:center;">预设为 0 (0有1无) (如果有则使用外部程序内部预设延长长度 DRESSER[99])</td>
 </tr>
 <tr>
-<td style="text-align:center">通用齿型程序-插补修整平面选择</td>
-<td style="text-align:center">DRESSER[56]</td>
-<td style="text-align:center">预设为 0 (0:G17-12几何轴/1:G18-13几何轴/2:G19-23几何轴)</td>
+<td style="text-align:center;">执行修整中每20次重新运行砂轮转速子程序</td>
+<td style="text-align:center;">INI[111]</td>
+<td style="text-align:center;">预设为 0 (默认0为跳过)</td>
 </tr>
 <tr>
-<td style="text-align:center">磨削中修整是否提前一刀启动滚轮</td>
-<td style="text-align:center">DRESSER[57]</td>
-<td style="text-align:center">预设为 0 (0否1是)</td>
+<td style="text-align:center;">通用齿型程序-插补修整平面选择</td>
+<td style="text-align:center;">DRESSER[56]</td>
+<td style="text-align:center;">预设为 0 (0:G17-12几何轴/1:G18-13几何轴/2:G19-23几何轴)</td>
 </tr>
 <tr>
-<td style="text-align:center">三角齿型-齿型选择参数显示</td>
-<td style="text-align:center">SHAPE_MODEL[6]</td>
-<td style="text-align:center">预设为 0 (0否1是)</td>
+<td style="text-align:center;">磨削中修整是否提前一刀启动滚轮</td>
+<td style="text-align:center;">DRESSER[57]</td>
+<td style="text-align:center;">预设为 0 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center">梯形齿型-梯形修整模式选择参数显示</td>
-<td style="text-align:center">SHAPE_MODEL[26]</td>
-<td style="text-align:center">预设为 0 (0否1是)</td>
+<td style="text-align:center;">三角齿型-齿型选择参数显示</td>
+<td style="text-align:center;">SHAPE_MODEL[6]</td>
+<td style="text-align:center;">预设为 0 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center">双圆弧齿型-扩展选项参数显示</td>
-<td style="text-align:center">SHAPE_MODEL[110]</td>
-<td style="text-align:center">预设为 0 (0否1是)</td>
+<td style="text-align:center;">梯形齿型-梯形修整模式选择参数显示</td>
+<td style="text-align:center;">SHAPE_MODEL[26]</td>
+<td style="text-align:center;">预设为 0 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center">开放附加齿型选择</td>
-<td style="text-align:center">DRESSER[114]</td>
-<td style="text-align:center">预设为 0 (0否1是)</td>
+<td style="text-align:center;">双圆弧齿型-扩展选项参数显示</td>
+<td style="text-align:center;">SHAPE_MODEL[110]</td>
+<td style="text-align:center;">预设为 0 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center">新砂轮轮廓修整部分是否单独修整参数</td>
-<td style="text-align:center">TECHNOLOGY[302]</td>
-<td style="text-align:center">预设为 0 (0否1是)</td>
+<td style="text-align:center;">开放附加齿型选择</td>
+<td style="text-align:center;">DRESSER[114]</td>
+<td style="text-align:center;">预设为 0 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center;">新砂轮轮廓修整部分是否单独修整参数</td>
+<td style="text-align:center;">TECHNOLOGY[302]</td>
+<td style="text-align:center;">预设为 0 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>对刀相关</strong></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
 </tr>
 <tr>
-<td style="text-align:center">是否有自动对刀</td>
-<td style="text-align:center">INI[69]</td>
-<td style="text-align:center">根据配置自动预设 (0没有/1有) (没有自动对刀则隐藏)</td>
+<td style="text-align:center;"><strong>对刀相关</strong></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
 </tr>
 <tr>
-<td style="text-align:center">有无二次对刀</td>
-<td style="text-align:center">INI[78]</td>
-<td style="text-align:center">根据配置自动预设 (0没有/1有) (此参数为隐藏后台参数) (内螺纹设置为0)</td>
+<td style="text-align:center;">是否有自动对刀</td>
+<td style="text-align:center;">INI[69]</td>
+<td style="text-align:center;">根据配置自动预设 (0没有/1有) (没有自动对刀则隐藏)</td>
 </tr>
 <tr>
-<td style="text-align:center">自动对刀后是否直接磨削</td>
-<td style="text-align:center">INI[90]</td>
-<td style="text-align:center">预设为 0 (0否1是) (磨削中心设置为0隐藏此行)</td>
+<td style="text-align:center;">有无二次对刀</td>
+<td style="text-align:center;">INI[78]</td>
+<td style="text-align:center;">根据配置自动预设 (0没有/1有) (此参数为隐藏后台参数) (内螺纹设置为0)</td>
 </tr>
 <tr>
-<td style="text-align:center">对刀模式</td>
-<td style="text-align:center">INI[109]</td>
-<td style="text-align:center">预设为 0 (zc插补0/静止对刀1)</td>
+<td style="text-align:center;">自动对刀后是否直接磨削</td>
+<td style="text-align:center;">INI[90]</td>
+<td style="text-align:center;">预设为 0 (0否1是) (磨削中心设置为0隐藏此行)</td>
 </tr>
 <tr>
-<td style="text-align:center">内螺纹自动对刀测量方向</td>
-<td style="text-align:center">TOOL_SET[43]</td>
-<td style="text-align:center">根据配置自动预设 (1向前测量/-1向后测量) (没有自动对刀则隐藏) (外螺纹不显示)</td>
+<td style="text-align:center;">对刀模式</td>
+<td style="text-align:center;">INI[109]</td>
+<td style="text-align:center;">预设为 0 (zc插补0/静止对刀1)</td>
 </tr>
 <tr>
-<td style="text-align:center">自动对刀测头伸出缩回没有检测开关</td>
-<td style="text-align:center">INI[157]</td>
-<td style="text-align:center">预设为 0 (没有自动对刀则隐藏)</td>
+<td style="text-align:center;">内螺纹自动对刀测量方向</td>
+<td style="text-align:center;">TOOL_SET[43]</td>
+<td style="text-align:center;">根据配置自动预设 (1向前测量/-1向后测量) (没有自动对刀则隐藏) (外螺纹不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">自动对刀测量模式检测</td>
-<td style="text-align:center">INI[159]</td>
-<td style="text-align:center">预设为 0 (0两次/1一次) (没有自动对刀则隐藏)</td>
+<td style="text-align:center;">自动对刀测头伸出缩回没有检测开关</td>
+<td style="text-align:center;">INI[157]</td>
+<td style="text-align:center;">预设为 0 (没有自动对刀则隐藏)</td>
 </tr>
 <tr>
-<td style="text-align:center">自动对刀可选测量右端面小台阶</td>
-<td style="text-align:center">TECHNOLOGY[128]</td>
-<td style="text-align:center">预设为 0 (0否1是) (没有自动对刀则隐藏) (外螺纹不显示)</td>
+<td style="text-align:center;">自动对刀测量模式检测</td>
+<td style="text-align:center;">INI[159]</td>
+<td style="text-align:center;">预设为 0 (0两次/1一次) (没有自动对刀则隐藏)</td>
 </tr>
 <tr>
-<td style="text-align:center">自动对刀内螺纹测量机构类型选择</td>
-<td style="text-align:center">TECHNOLOGY[158]</td>
-<td style="text-align:center">根据配置自动预设 (0开关1测头) (没有自动对刀则隐藏) (外螺纹不显示)</td>
+<td style="text-align:center;">自动对刀可选测量右端面小台阶/定位孔</td>
+<td style="text-align:center;">TECHNOLOGY[128]</td>
+<td style="text-align:center;">预设为 0 (0否1是) (没有自动对刀则隐藏) (外螺纹不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">首件工件对刀c起始角度</td>
-<td style="text-align:center">TOOL_SET[56]</td>
-<td style="text-align:center">预设为 0 (0:当前c起始角/1:0度对刀) (没有自动对刀则隐藏)</td>
+<td style="text-align:center;">自动对刀内螺纹测量机构类型选择</td>
+<td style="text-align:center;">TECHNOLOGY[158]</td>
+<td style="text-align:center;">根据配置自动预设 (0开关1测头) (没有自动对刀则隐藏) (外螺纹不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">非首件工件对刀X轴直接移动到初始磨削接触</td>
-<td style="text-align:center">PROCESS[121]</td>
-<td style="text-align:center">预设为 0 (0否1是)</td>
+<td style="text-align:center;">首件工件对刀c起始角度</td>
+<td style="text-align:center;">TOOL_SET[56]</td>
+<td style="text-align:center;">预设为 0 (0:当前c起始角/1:0度对刀) (没有自动对刀则隐藏)</td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center;">非首件工件对刀X轴直接移动到初始磨削接触</td>
+<td style="text-align:center;">PROCESS[121]</td>
+<td style="text-align:center;">预设为 0 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>磨削中心相关</strong></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
 </tr>
 <tr>
-<td style="text-align:center">外圆砂轮类型选择</td>
-<td style="text-align:center">INI[91]</td>
-<td style="text-align:center">根据配置自动预设 (0模拟量/1伺服)</td>
+<td style="text-align:center;"><strong>磨削中心相关</strong></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
 </tr>
 <tr>
-<td style="text-align:center">磨削中心只磨内磨时结束不返回外磨Z安全位置</td>
-<td style="text-align:center">PROCESS[118]</td>
-<td style="text-align:center">预设为 0</td>
+<td style="text-align:center;">外圆砂轮类型选择</td>
+<td style="text-align:center;">INI[91]</td>
+<td style="text-align:center;">根据配置自动预设 (0模拟量/1伺服)</td>
 </tr>
 <tr>
-<td style="text-align:center">磨削中心外圆/端面加工时头架旋转方向</td>
-<td style="text-align:center">TECHNOLOGY[230]</td>
-<td style="text-align:center">根据配置自动预设 (0正转/1反转)</td>
+<td style="text-align:center;">磨削中心只磨内磨时结束不返回外磨Z安全位置</td>
+<td style="text-align:center;">PROCESS[118]</td>
+<td style="text-align:center;">预设为 0</td>
 </tr>
 <tr>
-<td style="text-align:center">磨削中心外磨修整器是否液压控制</td>
-<td style="text-align:center">PROCESS[50]</td>
-<td style="text-align:center">根据配置自动预设 (0否1是)</td>
+<td style="text-align:center;">磨削中心外圆/端面加工时头架旋转方向</td>
+<td style="text-align:center;">TECHNOLOGY[230]</td>
+<td style="text-align:center;">根据配置自动预设 (0正转/1反转)</td>
 </tr>
 <tr>
-<td style="text-align:center">磨削中心外磨砂轮修整时头架停止转动并移动到固定角度</td>
-<td style="text-align:center">DRESSER[54]</td>
-<td style="text-align:center">根据配置自动预设 (0否1是) (设1则在外圆修整界面设置角度)</td>
+<td style="text-align:center;">磨削中心外磨修整器是否液压控制</td>
+<td style="text-align:center;">PROCESS[50]</td>
+<td style="text-align:center;">根据配置自动预设 (0否1是)</td>
 </tr>
 <tr>
-<td style="text-align:center">程序结束外圆砂轮是否停止</td>
-<td style="text-align:center">INI[92]</td>
-<td style="text-align:center">根据配置自动预设 (0立刻停/1低速旋转直到程序结束/2低速旋转程序结束也不停)</td>
+<td style="text-align:center;">磨削中心外磨砂轮修整时头架停止转动并移动到固定角度</td>
+<td style="text-align:center;">DRESSER[54]</td>
+<td style="text-align:center;">根据配置自动预设 (0否1是) (设1则在外圆修整界面设置角度)</td>
 </tr>
 <tr>
-<td style="text-align:center">磨削中心外磨加工完后砂轮低速运行转速</td>
-<td style="text-align:center">TOOL_SET[6]</td>
-<td style="text-align:center">预设为 800</td>
+<td style="text-align:center;">程序结束外圆砂轮是否停止</td>
+<td style="text-align:center;">INI[92]</td>
+<td style="text-align:center;">根据配置自动预设 (0立刻停/1低速旋转直到程序结束/2低速旋转程序结束也不停)</td>
 </tr>
 <tr>
-<td style="text-align:center">磨削中心侧门关闭是否有检测开关</td>
-<td style="text-align:center">TOOL_SET[18]</td>
-<td style="text-align:center">预设为 0 (0无1有)</td>
+<td style="text-align:center;">磨削中心外磨加工完后砂轮低速运行转速</td>
+<td style="text-align:center;">TOOL_SET[6]</td>
+<td style="text-align:center;">预设为 800</td>
 </tr>
 <tr>
-<td style="text-align:center">外圆在线测量参数显示-粗磨工序不测量</td>
-<td style="text-align:center">INI[149]</td>
-<td style="text-align:center">预设为 0 (0无1有)</td>
+<td style="text-align:center;">磨削中心侧门关闭是否有检测开关</td>
+<td style="text-align:center;">TOOL_SET[18]</td>
+<td style="text-align:center;">预设为 0 (0无1有)</td>
 </tr>
 <tr>
-<td style="text-align:center">在线测量FA速度</td>
-<td style="text-align:center">INI[116]</td>
-<td style="text-align:center">预设为 0.6 (外圆在线测量独有)</td>
+<td style="text-align:center;">外圆在线测量参数显示-粗磨工序不测量</td>
+<td style="text-align:center;">INI[149]</td>
+<td style="text-align:center;">预设为 0 (0无1有)</td>
 </tr>
 <tr>
-<td style="text-align:center">在线测量F3速度</td>
-<td style="text-align:center">INI[117]</td>
-<td style="text-align:center">预设为 0.4 (外圆在线测量独有)</td>
+<td style="text-align:center;">在线测量FA速度</td>
+<td style="text-align:center;">INI[116]</td>
+<td style="text-align:center;">预设为 0.6 (外圆在线测量独有)</td>
 </tr>
 <tr>
-<td style="text-align:center">在线测量F2速度</td>
-<td style="text-align:center">INI[118]</td>
-<td style="text-align:center">预设为 0.2 (外圆在线测量独有)</td>
+<td style="text-align:center;">在线测量F3速度</td>
+<td style="text-align:center;">INI[117]</td>
+<td style="text-align:center;">预设为 0.4 (外圆在线测量独有)</td>
 </tr>
 <tr>
-<td style="text-align:center">在线测量延时</td>
-<td style="text-align:center">INI[119]</td>
-<td style="text-align:center">预设为 8 (外圆在线测量独有)</td>
+<td style="text-align:center;">在线测量F2速度</td>
+<td style="text-align:center;">INI[118]</td>
+<td style="text-align:center;">预设为 0.2 (外圆在线测量独有)</td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center;">在线测量延时</td>
+<td style="text-align:center;">INI[119]</td>
+<td style="text-align:center;">预设为 8 (外圆在线测量独有)</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>隐藏界面激活</strong></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
 </tr>
 <tr>
-<td style="text-align:center">参数备份恢复界面开启</td>
-<td style="text-align:center">TECHNOLOGY[56]</td>
-<td style="text-align:center">预设为 0 (custom主界面)</td>
+<td style="text-align:center;"><strong>隐藏界面激活</strong></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
 </tr>
 <tr>
-<td style="text-align:center">加工统计界面开启</td>
-<td style="text-align:center">TECHNOLOGY[57]</td>
-<td style="text-align:center">预设为 1 (custom主界面)</td>
+<td style="text-align:center;">参数备份恢复界面开启</td>
+<td style="text-align:center;">TECHNOLOGY[56]</td>
+<td style="text-align:center;">预设为 0 (custom主界面)</td>
 </tr>
 <tr>
-<td style="text-align:center">修整轮生命周期统计显示</td>
-<td style="text-align:center">TECHNOLOGY[134]</td>
-<td style="text-align:center">预设为 0 (加工统计界面)</td>
+<td style="text-align:center;">加工统计界面开启</td>
+<td style="text-align:center;">TECHNOLOGY[57]</td>
+<td style="text-align:center;">预设为 1 (custom主界面)</td>
 </tr>
 <tr>
-<td style="text-align:center">机械手按钮显示开启</td>
-<td style="text-align:center">TOOL_SET[16]</td>
-<td style="text-align:center">预设为 0 (磨削界面)</td>
+<td style="text-align:center;">修整轮生命周期统计显示</td>
+<td style="text-align:center;">TECHNOLOGY[134]</td>
+<td style="text-align:center;">预设为 0 (加工统计界面)</td>
 </tr>
 <tr>
-<td style="text-align:center">机械手装夹中检测吹气清洁卡盘功能开启</td>
-<td style="text-align:center">PROCESS[122]</td>
-<td style="text-align:center">0为不检测 1为检测(如需开启检测需手动在变量表给此参数赋值) (R100 R101设置速度和时间)</td>
+<td style="text-align:center;">机械手按钮显示开启</td>
+<td style="text-align:center;">TOOL_SET[16]</td>
+<td style="text-align:center;">预设为 0 (磨削界面)</td>
 </tr>
 <tr>
-<td style="text-align:center">螺距变换界面开启</td>
-<td style="text-align:center">TOOL_SET[61]</td>
-<td style="text-align:center">预设为 0 (磨削界面)</td>
+<td style="text-align:center;">机械手装夹中检测吹气清洁卡盘功能开启</td>
+<td style="text-align:center;">PROCESS[122]</td>
+<td style="text-align:center;">0为不检测 1为检测(如需开启检测需手动在变量表给此参数赋值) (R100 R101设置速度和时间)</td>
 </tr>
 <tr>
-<td style="text-align:center">自磨夹具界面开启</td>
-<td style="text-align:center">TECHNOLOGY[232]</td>
-<td style="text-align:center">预设为 0 (磨削界面) (外螺纹不显示)</td>
+<td style="text-align:center;">螺距变换界面开启</td>
+<td style="text-align:center;">TOOL_SET[61]</td>
+<td style="text-align:center;">预设为 0 (磨削界面)</td>
 </tr>
 <tr>
-<td style="text-align:center">内螺纹反向孔倒角界面开启</td>
-<td style="text-align:center">INI[21]</td>
-<td style="text-align:center">预设为 0 (磨削界面)</td>
+<td style="text-align:center;">自磨夹具界面开启</td>
+<td style="text-align:center;">TECHNOLOGY[232]</td>
+<td style="text-align:center;">预设为 0 (磨削界面) (外螺纹不显示)</td>
 </tr>
 <tr>
-<td style="text-align:center">内螺纹反向孔倒角-倒角终点X向补偿参数显示</td>
-<td style="text-align:center">TECHNOLOGY[291]</td>
-<td style="text-align:center">预设为 0 (反向孔倒角界面)</td>
+<td style="text-align:center;">内螺纹反向孔倒角界面开启</td>
+<td style="text-align:center;">INI[21]</td>
+<td style="text-align:center;">预设为 0 (磨削界面)</td>
 </tr>
 <tr>
-<td style="text-align:center">螺纹两端变径磨削界面开启</td>
-<td style="text-align:center">TECHNOLOGY[108]</td>
-<td style="text-align:center">预设为 0 (磨削界面)</td>
+<td style="text-align:center;">内螺纹反向孔倒角-倒角终点X向补偿参数显示</td>
+<td style="text-align:center;">TECHNOLOGY[291]</td>
+<td style="text-align:center;">预设为 0 (反向孔倒角界面)</td>
 </tr>
 <tr>
-<td style="text-align:center">空运行热机界面开启</td>
-<td style="text-align:center">TECHNOLOGY[55]</td>
-<td style="text-align:center">预设为 0 (磨削界面)</td>
+<td style="text-align:center;">螺纹两端变径磨削界面开启</td>
+<td style="text-align:center;">TECHNOLOGY[108]</td>
+<td style="text-align:center;">预设为 0 (磨削界面)</td>
 </tr>
 <tr>
-<td style="text-align:center">工艺附加配置界面开启</td>
-<td style="text-align:center">TECHNOLOGY[126]</td>
-<td style="text-align:center">预设为 0 (工艺界面) (进刀量梯度变化  每头进刀位置补偿 等)</td>
+<td style="text-align:center;">空运行热机界面开启</td>
+<td style="text-align:center;">TECHNOLOGY[55]</td>
+<td style="text-align:center;">预设为 0 (磨削界面)</td>
 </tr>
 <tr>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center;">分段补偿中径/导程-界面开启</td>
+<td style="text-align:center;">TECHNOLOGY[309]</td>
+<td style="text-align:center;">预设为 0 (磨削界面)</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong>界面部分参数设置限制调整</strong></td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center;">工艺附加配置界面开启</td>
+<td style="text-align:center;">TECHNOLOGY[126]</td>
+<td style="text-align:center;">预设为 0 (工艺界面) (进刀量梯度变化  每头进刀位置补偿 等)</td>
 </tr>
 <tr>
-<td style="text-align:center">界面中径调整限制值</td>
-<td style="text-align:center">TOOL_SET[11]</td>
-<td style="text-align:center">预设为 0 (默认0表示限制为正负1) (例如设置 2 表示极限值为：-2 ~ +2)</td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
 </tr>
 <tr>
-<td style="text-align:center">工艺界面除粗磨外进给量设置限制值</td>
-<td style="text-align:center">TOOL_SET[12]</td>
-<td style="text-align:center">预设为 0 (默认0表示限制为正负0.1) (例如设置 0.2 表示极限值为：-0.2 ~ +0.2)</td>
+<td style="text-align:center;"><strong>界面部分参数设置限制调整</strong></td>
+<td style="text-align:center;"></td>
+<td style="text-align:center;"></td>
 </tr>
 <tr>
-<td style="text-align:center">工艺界面头架转速设置限制值</td>
-<td style="text-align:center">TECHNOLOGY[159]</td>
-<td style="text-align:center">预设为 0 (默认0表示限制为60转) (例如设置 100 表示限制值为：0 ~ 100)</td>
+<td style="text-align:center;">界面中径调整限制值</td>
+<td style="text-align:center;">TOOL_SET[11]</td>
+<td style="text-align:center;">预设为 0 (默认0表示限制为正负1) (例如设置 2 表示极限值为：-2 ~ +2)</td>
 </tr>
 <tr>
-<td style="text-align:center">修整界面进给量设置限制值</td>
-<td style="text-align:center">TOOL_SET[13]</td>
-<td style="text-align:center">预设为 0 (默认0表示限制为 0-0.1) (例如设置 0.3 表示极限值为：0 ~ +0.3)</td>
+<td style="text-align:center;">工艺界面除粗磨外进给量设置限制值</td>
+<td style="text-align:center;">TOOL_SET[12]</td>
+<td style="text-align:center;">预设为 0 (默认0表示限制为正负0.1) (例如设置 0.2 表示极限值为：-0.2 ~ +0.2)</td>
 </tr>
 <tr>
-<td style="text-align:center">磨削中心-外圆端面修整进给量设置限制值</td>
-<td style="text-align:center">TOOL_SET[14]</td>
-<td style="text-align:center">预设为 0 (默认0表示限制为 0-0.1) (例如设置 0.3 表示极限值为：0 ~ +0.3)</td>
+<td style="text-align:center;">工艺界面头架转速设置限制值</td>
+<td style="text-align:center;">TECHNOLOGY[159]</td>
+<td style="text-align:center;">预设为 0 (默认0表示限制为60转) (例如设置 100 表示限制值为：0 ~ 100)</td>
+</tr>
+<tr>
+<td style="text-align:center;">修整界面进给量设置限制值</td>
+<td style="text-align:center;">TOOL_SET[13]</td>
+<td style="text-align:center;">预设为 0 (默认0表示限制为 0-0.1) (例如设置 0.3 表示极限值为：0 ~ +0.3)</td>
+</tr>
+<tr>
+<td style="text-align:center;">磨削中心-外圆端面修整进给量设置限制值</td>
+<td style="text-align:center;">TOOL_SET[14]</td>
+<td style="text-align:center;">预设为 0 (默认0表示限制为 0-0.1) (例如设置 0.3 表示极限值为：0 ~ +0.3)</td>
 </tr>
 </tbody>
 </table>
@@ -946,15 +918,19 @@ code {
 </ul>
 <h2 id="todo-list">Todo List</h2>
 <ul>
-<li><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">外螺纹左旋从工件右端磨削选项</label></li>
-<li><input type="checkbox" id="checkbox1" checked="true"><label for="checkbox1">内螺纹左旋从工件左端磨削选项</label></li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> 外螺纹左旋从工件右端磨削选项</li>
+<li class="task-list-item" style="list-style-type: none;"><input type="checkbox" disabled style="margin: 0px 0.35em 0.25em -1.6em; vertical-align: middle;" checked> 内螺纹左旋从工件左端磨削选项</li>
 </ul>
 <h2 id="contact">Contact</h2>
 <ul>
-<li>Email: business@niekun.net</li>
+<li>Email: <a href="m&#x61;i&#108;&#x74;&#x6f;&#x3a;&#x62;u&#115;&#105;&#110;&#x65;&#115;&#115;&#x40;&#110;&#105;&#x65;&#x6b;&#117;&#110;&#46;&#x6e;&#101;t">&#x62;&#x75;&#115;&#x69;&#x6e;e&#x73;&#115;&#64;&#110;&#x69;&#101;&#107;&#x75;&#x6e;&#x2e;n&#x65;t</a></li>
 <li>Follow me at <a href="https://twitter.com/marco_nie">Twitter</a>. <a href="https://weibo.com/nie11kun">Weibo</a>. <a href="https://www.instagram.com/marco_nie_/">Instagram</a>. <a href="https://www.facebook.com/nie11kun">Facebook</a></li>
 <li>My Blog: <a href="https://niekun.net">niekun.net</a></li>
 </ul>
-
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </body>
 </html>

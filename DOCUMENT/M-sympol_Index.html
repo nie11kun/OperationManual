@@ -1,799 +1,832 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>M-sympol_Index</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="UTF-8">
-  <style type='text/css'>/* Base body styles */
+<title>M-sympol_Index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
 body {
-    /* Consolidated font stack */
-    font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    /* Base text color for the page */
-    color: #111;
-    /* Page background color */
-    background-color: #fbfbfb;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
-    padding: 30px;
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
 }
 
-/* Responsive adjustments */
-@media only screen and (max-width: 600px) {
-    body {
-        padding: 5px;
-    }
-    body>#content {
-        /* Using !important here, be mindful if further overrides are needed */
-        padding: 0px 20px 20px 20px !important;
-    }
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
 }
 
-/* Main content container styling */
-body>#content {
-    margin: 0px auto; /* Simplified margin */
-    max-width: 900px;
-    border: 1px solid #e1e4e8;
-    padding: 10px 40px 20px 40px; /* Combined padding */
-    border-radius: 2px;
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
 }
 
-/* Details/Summary element styling */
-summary {
-    cursor: pointer;
-    text-decoration: underline;
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
 }
 
-/* Horizontal rule styling */
-hr {
-    background-color: #bbb;
-    height: 1px;
-    margin: 1em 0;
-    padding: 0;
-    border: none;
+body.showEditorSelection .code-line {
+	position: relative;
 }
 
-/*
- * NOTE: The .hljs-operator override was removed.
- * It was likely a symptom of the color conflicts.
- * If specific operator colors are still needed after fixing main conflicts,
- * add specific overrides carefully based on the chosen theme.
- */
-/*
-.hljs-operator {
-    color: #868686;
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
 }
-*/
 
-/**
- * Links
- */
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
 a {
-    color: #0366d6;
-    text-decoration: none;
-}
-
-/* :visited style same as a, can be combined if desired */
-a:visited {
-    color: #0366d6;
+	text-decoration: none;
 }
 
 a:hover {
-    color: #0366d6;
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
-/**
- * Code blocks container (<pre>)
- * IMPORTANT: background-color removed to allow Highlight.js dark themes
- * to control the background. If you want a light background for code,
- * remove this comment and use a LIGHT Highlight.js theme instead.
- */
-pre {
-    /* background-color: #f6f8fa; */ /* REMOVED for dark theme compatibility */
-    border-radius: 3px;
-    font-size: 85%; /* Makes text slightly smaller than surrounding text */
-    line-height: 1.45;
-    overflow: auto; /* Adds scrollbars if code overflows */
-    padding: 16px;
-    /* Optional: Add a subtle border if needed when background is controlled by theme */
-    /* border: 1px solid #333; */
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
 }
 
-/**
- * Inline code (not in <pre>)
- */
-code {
-    background-color: rgba(27, 31, 35, .05); /* Subtle background for inline code */
-    border-radius: 3px;
-    font-size: 85%; /* Match pre's relative size */
-    margin: 0;
-    word-wrap: break-word; /* Allow inline code to wrap */
-    padding: .2em .4em;
-    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
 }
 
-/**
- * Code inside <pre> blocks - Resetting styles applied by the general 'code' rule
- */
-pre > code {
-    background-color: transparent; /* Inherit background from pre (or theme) */
-    border: 0;
-    display: inline; /* Should technically be block or inline-block for layout consistency? Often okay as inline. */
-    font-size: 100%; /* Inherit font size from pre */
-    line-height: inherit; /* Inherit line height from pre */
-    margin: 0;
-    overflow: visible;
-    padding: 0;
-    word-wrap: normal; /* Prevent wrapping within the pre block unless intended */
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
 }
 
-
-/**
- * Blockquotes
- */
-blockquote {
-    margin-left: 30px;
-    margin-top: 0px;
-    margin-bottom: 16px;
-    padding: 0 1em;
-    color: #828282; /* Base color for blockquote text */
-    border-left: 4px solid #e8e8e8;
-    padding-left: 15px;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-style: italic;
+h1, h2, h3 {
+	font-weight: normal;
 }
 
-/* Styles for elements *inside* blockquotes */
-blockquote * {
-    font-style: normal !important; /* Force non-italic */
-    letter-spacing: 0;
-    color: #6a737d !important; /* Override inherited color, using !important */
-}
-
-
-/**
- * Tables
- */
 table {
-    /* border-spacing: 2px; */ /* Usually overridden by border-collapse */
-    display: block; /* Needed for overflow */
-    font-size: 14px;
-    overflow: auto;
-    width: 100%;
-    margin-bottom: 16px;
-    border-spacing: 0;
-    border-collapse: collapse;
+	border-collapse: collapse;
 }
 
-td, th { /* Combined rule for td and th */
-    padding: 6px 13px;
-    border: 1px solid #dfe2e5;
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
 }
 
-th {
-    font-weight: 600;
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
 }
 
-tr {
-    background-color: #fff;
-    border-top: 1px solid #c6cbd1;
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
 }
 
-table tr:nth-child(2n) {
-    background-color: #f6f8fa; /* Zebra striping */
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
 }
 
-
-/**
- * Other elements
- */
-img {
-    max-width: 100%;
-    height: auto; /* Maintain aspect ratio */
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
 }
 
-p {
-    line-height: 1.5; /* Match body line-height */
-    font-weight: 400;
-    font-size: 16px;
-    color: #24292e; /* Specific paragraph color */
-    margin-top: 0; /* Default spacing handled by margin-bottom */
-    margin-bottom: 16px; /* Consistent bottom margin */
+body.wordWrap pre {
+	white-space: pre-wrap;
 }
 
-ul, ol /* Added ol for ordered lists */ {
-    margin-top: 0;
-    margin-bottom: 16px; /* Consistent bottom margin */
-    padding-left: 2em; /* Indentation for lists */
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
 }
 
-li {
-    color: #24292e; /* Specific list item color */
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
 }
 
-li + li {
-    margin-top: 0.25em; /* Spacing between list items */
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
 }
 
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
 /*
- * NOTE: Removed the universal '*' selector rule that was setting color: #24292e;
- * It conflicted with syntax highlighting themes. Base colors are set on body or specific elements.
- */
-/*
-* {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: #24292e;
-}
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
 */
 
-/* Redundant :visited rule removed as it's same as a */
-/*
-a:visited {
-    color: #0366d6;
-}
-*/
-
-/* Heading styles */
-h1,
-h2,
-h3,
-h4, /* Added h4, h5, h6 for consistency */
-h5,
-h6 {
-    margin-top: 24px; /* Space above headings */
-    margin-bottom: 16px; /* Space below headings */
-    font-weight: 600; /* Bolder headings */
-    line-height: 1.25;
-    color: #111; /* Base heading color */
-    border-bottom: 1px solid #eaecef; /* Underline for h1-h3 */
-    padding-bottom: .3em; /* Space between text and underline */
-}
-
-/* Remove border for lower-level headings */
-h4, h5, h6 {
-    border-bottom: none;
-}
-
-/* Font override for elements within highlighted code. Removed !important */
-code > * {
-    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-}</style>
-  <style type='text/css'>pre code.hljs {
+.hljs {
   display: block;
   overflow-x: auto;
-  padding: 1em
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
 }
-code.hljs {
-  padding: 3px 5px
-}
-/*
 
-Atom One Dark by Daniel Gamage
-Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
-
-base:    #282c34
-mono-1:  #abb2bf
-mono-2:  #818896
-mono-3:  #5c6370
-hue-1:   #56b6c2
-hue-2:   #61aeee
-hue-3:   #c678dd
-hue-4:   #98c379
-hue-5:   #e06c75
-hue-5-2: #be5046
-hue-6:   #d19a66
-hue-6-2: #e6c07b
-
-*/
-.hljs {
-  color: #abb2bf;
-  background: #282c34
-}
 .hljs-comment,
 .hljs-quote {
-  color: #5c6370;
-  font-style: italic
+  color: #998;
+  font-style: italic;
 }
-.hljs-doctag,
+
 .hljs-keyword,
-.hljs-formula {
-  color: #c678dd
-}
-.hljs-section,
-.hljs-name,
 .hljs-selector-tag,
-.hljs-deletion,
 .hljs-subst {
-  color: #e06c75
+  color: #333;
+  font-weight: bold;
 }
-.hljs-literal {
-  color: #56b6c2
-}
-.hljs-string,
-.hljs-regexp,
-.hljs-addition,
-.hljs-attribute,
-.hljs-meta .hljs-string {
-  color: #98c379
-}
-.hljs-attr,
+
+.hljs-number,
+.hljs-literal,
 .hljs-variable,
 .hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
 .hljs-type,
-.hljs-selector-class,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-number {
-  color: #d19a66
-}
-.hljs-symbol,
-.hljs-bullet,
-.hljs-link,
-.hljs-meta,
-.hljs-selector-id,
-.hljs-title {
-  color: #61aeee
-}
-.hljs-built_in,
-.hljs-title.class_,
 .hljs-class .hljs-title {
-  color: #e6c07b
+  color: #458;
+  font-weight: bold;
 }
-.hljs-emphasis {
-  font-style: italic
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
 }
-.hljs-strong {
-  font-weight: bold
-}
+
+.hljs-regexp,
 .hljs-link {
-  text-decoration: underline
-}</style>
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 </head>
 <body>
-  <div id='content'>
-<p>#</p>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id=""></h1>
 <table>
 <thead>
 <tr>
-<th id="m代码" style="text-align:center;">M代码</th>
-<th id="含义" style="text-align:center;">含义</th>
+<th style="text-align:center">M代码</th>
+<th style="text-align:center">含义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center;">M0</td>
-<td style="text-align:center;">程序停止 - 系统</td>
+<td style="text-align:center">M0</td>
+<td style="text-align:center">程序停止 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M1</td>
-<td style="text-align:center;">可选程序停止 - 系统</td>
+<td style="text-align:center">M1</td>
+<td style="text-align:center">可选程序停止 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M2</td>
-<td style="text-align:center;">程序结束-同M30 - 系统</td>
+<td style="text-align:center">M2</td>
+<td style="text-align:center">程序结束-同M30 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M3</td>
-<td style="text-align:center;">伺服主轴顺时针旋转 - 系统</td>
+<td style="text-align:center">M3</td>
+<td style="text-align:center">伺服主轴顺时针旋转 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M4</td>
-<td style="text-align:center;">伺服主轴逆时针旋转 - 系统</td>
+<td style="text-align:center">M4</td>
+<td style="text-align:center">伺服主轴逆时针旋转 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M5</td>
-<td style="text-align:center;">伺服主轴停止 - 系统</td>
+<td style="text-align:center">M5</td>
+<td style="text-align:center">伺服主轴停止 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M6</td>
-<td style="text-align:center;">刀具更换 - 系统</td>
+<td style="text-align:center">M6</td>
+<td style="text-align:center">刀具更换 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M7</td>
-<td style="text-align:center;"></td>
+<td style="text-align:center">M7</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center;">M8</td>
-<td style="text-align:center;">磨削冷却启动(冷却泵1)(内磨冷却)</td>
+<td style="text-align:center">M8</td>
+<td style="text-align:center">磨削冷却启动(冷却泵1)(内磨冷却)</td>
 </tr>
 <tr>
-<td style="text-align:center;">M9</td>
-<td style="text-align:center;">磨削冷却停止(冷却泵1)(内磨冷却)</td>
+<td style="text-align:center">M9</td>
+<td style="text-align:center">磨削冷却停止(冷却泵1)(内磨冷却)</td>
 </tr>
 <tr>
-<td style="text-align:center;">M10</td>
-<td style="text-align:center;">尾架回退</td>
+<td style="text-align:center">M10</td>
+<td style="text-align:center">尾架回退</td>
 </tr>
 <tr>
-<td style="text-align:center;">M11</td>
-<td style="text-align:center;">润滑启动</td>
+<td style="text-align:center">M11</td>
+<td style="text-align:center">润滑启动</td>
 </tr>
 <tr>
-<td style="text-align:center;">M12</td>
-<td style="text-align:center;">润滑停止</td>
+<td style="text-align:center">M12</td>
+<td style="text-align:center">润滑停止</td>
 </tr>
 <tr>
-<td style="text-align:center;">M13</td>
-<td style="text-align:center;">变频砂轮1启动</td>
+<td style="text-align:center">M13</td>
+<td style="text-align:center">变频砂轮1启动</td>
 </tr>
 <tr>
-<td style="text-align:center;">M14</td>
-<td style="text-align:center;">尾架伸出</td>
+<td style="text-align:center">M14</td>
+<td style="text-align:center">尾架伸出</td>
 </tr>
 <tr>
-<td style="text-align:center;">M15</td>
-<td style="text-align:center;">变频砂轮1停止</td>
+<td style="text-align:center">M15</td>
+<td style="text-align:center">变频砂轮1停止</td>
 </tr>
 <tr>
-<td style="text-align:center;">M16</td>
-<td style="text-align:center;">调用360功能异步子程序</td>
+<td style="text-align:center">M16</td>
+<td style="text-align:center">调用360功能异步子程序</td>
 </tr>
 <tr>
-<td style="text-align:center;">M17</td>
-<td style="text-align:center;">子程序程序结束 - 系统</td>
+<td style="text-align:center">M17</td>
+<td style="text-align:center">子程序程序结束 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M18</td>
-<td style="text-align:center;">360功能按键关闭</td>
+<td style="text-align:center">M18</td>
+<td style="text-align:center">360功能按键关闭</td>
 </tr>
 <tr>
-<td style="text-align:center;">M19</td>
-<td style="text-align:center;">主轴运动到 SD43240 指定的位置 - 系统</td>
+<td style="text-align:center">M19</td>
+<td style="text-align:center">主轴运动到 SD43240 指定的位置 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M20</td>
-<td style="text-align:center;">吸雾器启动</td>
+<td style="text-align:center">M20</td>
+<td style="text-align:center">吸雾器启动</td>
 </tr>
 <tr>
-<td style="text-align:center;">M21</td>
-<td style="text-align:center;">吸雾器停止</td>
+<td style="text-align:center">M21</td>
+<td style="text-align:center">吸雾器停止</td>
 </tr>
 <tr>
-<td style="text-align:center;">M22</td>
-<td style="text-align:center;">砂轮修整程序启动</td>
+<td style="text-align:center">M22</td>
+<td style="text-align:center">砂轮修整程序启动</td>
 </tr>
 <tr>
-<td style="text-align:center;">M23</td>
-<td style="text-align:center;">变频砂轮2启动</td>
+<td style="text-align:center">M23</td>
+<td style="text-align:center">变频砂轮2启动</td>
 </tr>
 <tr>
-<td style="text-align:center;">M24</td>
-<td style="text-align:center;"></td>
+<td style="text-align:center">M24</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center;">M25</td>
-<td style="text-align:center;">变频砂轮2停止</td>
+<td style="text-align:center">M25</td>
+<td style="text-align:center">变频砂轮2停止</td>
 </tr>
 <tr>
-<td style="text-align:center;">M26</td>
-<td style="text-align:center;">控制箱空调启动</td>
+<td style="text-align:center">M26</td>
+<td style="text-align:center">控制箱空调启动</td>
 </tr>
 <tr>
-<td style="text-align:center;">M27</td>
-<td style="text-align:center;">控制箱空调停止</td>
+<td style="text-align:center">M27</td>
+<td style="text-align:center">控制箱空调停止</td>
 </tr>
 <tr>
-<td style="text-align:center;">M28</td>
-<td style="text-align:center;">修整冷却启动(冷却泵2)</td>
+<td style="text-align:center">M28</td>
+<td style="text-align:center">修整冷却启动(冷却泵2)</td>
 </tr>
 <tr>
-<td style="text-align:center;">M29</td>
-<td style="text-align:center;">修整冷却停止(冷却泵2)</td>
+<td style="text-align:center">M29</td>
+<td style="text-align:center">修整冷却停止(冷却泵2)</td>
 </tr>
 <tr>
-<td style="text-align:center;">M30</td>
-<td style="text-align:center;">主程序结束 - 系统</td>
+<td style="text-align:center">M30</td>
+<td style="text-align:center">主程序结束 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M31</td>
-<td style="text-align:center;">罩壳门2打开；机械手调用</td>
+<td style="text-align:center">M31</td>
+<td style="text-align:center">罩壳门2打开；机械手调用</td>
 </tr>
 <tr>
-<td style="text-align:center;">M32</td>
-<td style="text-align:center;">系统占用</td>
+<td style="text-align:center">M32</td>
+<td style="text-align:center">系统占用</td>
 </tr>
 <tr>
-<td style="text-align:center;">M33</td>
-<td style="text-align:center;">测量机构1伸出</td>
+<td style="text-align:center">M33</td>
+<td style="text-align:center">测量机构1伸出</td>
 </tr>
 <tr>
-<td style="text-align:center;">M34</td>
-<td style="text-align:center;">测量机构1回退</td>
+<td style="text-align:center">M34</td>
+<td style="text-align:center">测量机构1回退</td>
 </tr>
 <tr>
-<td style="text-align:center;">M35</td>
-<td style="text-align:center;">砂轮架松开；A轴松开</td>
+<td style="text-align:center">M35</td>
+<td style="text-align:center">砂轮架松开；A轴松开</td>
 </tr>
 <tr>
-<td style="text-align:center;">M36</td>
-<td style="text-align:center;">砂轮架夹紧；A轴夹紧</td>
+<td style="text-align:center">M36</td>
+<td style="text-align:center">砂轮架夹紧；A轴夹紧</td>
 </tr>
 <tr>
-<td style="text-align:center;">M37</td>
-<td style="text-align:center;">罩壳门2关闭；机械手调用</td>
+<td style="text-align:center">M37</td>
+<td style="text-align:center">罩壳门2关闭；机械手调用</td>
 </tr>
 <tr>
-<td style="text-align:center;">M38</td>
-<td style="text-align:center;">淋浴冷却(冷却泵3)(外磨冷却)</td>
+<td style="text-align:center">M38</td>
+<td style="text-align:center">淋浴冷却(冷却泵3)(外磨冷却)</td>
 </tr>
 <tr>
-<td style="text-align:center;">M39</td>
-<td style="text-align:center;">淋浴冷却(冷却泵3)(外磨冷却)</td>
+<td style="text-align:center">M39</td>
+<td style="text-align:center">淋浴冷却(冷却泵3)(外磨冷却)</td>
 </tr>
 <tr>
-<td style="text-align:center;">M40</td>
-<td style="text-align:center;">自动齿轮换档 - 系统</td>
+<td style="text-align:center">M40</td>
+<td style="text-align:center">自动齿轮换档 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M41</td>
-<td style="text-align:center;">齿轮级 1 - 系统</td>
+<td style="text-align:center">M41</td>
+<td style="text-align:center">齿轮级 1 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M42</td>
-<td style="text-align:center;">齿轮级 2 - 系统</td>
+<td style="text-align:center">M42</td>
+<td style="text-align:center">齿轮级 2 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M43</td>
-<td style="text-align:center;">齿轮级 3 - 系统</td>
+<td style="text-align:center">M43</td>
+<td style="text-align:center">齿轮级 3 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M44</td>
-<td style="text-align:center;">齿轮级 4 - 系统</td>
+<td style="text-align:center">M44</td>
+<td style="text-align:center">齿轮级 4 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M45</td>
-<td style="text-align:center;">齿轮级 5 - 系统</td>
+<td style="text-align:center">M45</td>
+<td style="text-align:center">齿轮级 5 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M46</td>
-<td style="text-align:center;"></td>
+<td style="text-align:center">M46</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center;">M47</td>
-<td style="text-align:center;">罩壳门1打开；安全门打开</td>
+<td style="text-align:center">M47</td>
+<td style="text-align:center">罩壳门1打开；安全门打开</td>
 </tr>
 <tr>
-<td style="text-align:center;">M48</td>
-<td style="text-align:center;">罩壳门1关闭；安全门关闭</td>
+<td style="text-align:center">M48</td>
+<td style="text-align:center">罩壳门1关闭；安全门关闭</td>
 </tr>
 <tr>
-<td style="text-align:center;">M49</td>
-<td style="text-align:center;">排屑器启动</td>
+<td style="text-align:center">M49</td>
+<td style="text-align:center">排屑器启动</td>
 </tr>
 <tr>
-<td style="text-align:center;">M50</td>
-<td style="text-align:center;">排屑器停止</td>
+<td style="text-align:center">M50</td>
+<td style="text-align:center">排屑器停止</td>
 </tr>
 <tr>
-<td style="text-align:center;">M51</td>
-<td style="text-align:center;">静压泵启动</td>
+<td style="text-align:center">M51</td>
+<td style="text-align:center">静压泵启动</td>
 </tr>
 <tr>
-<td style="text-align:center;">M52</td>
-<td style="text-align:center;">静压泵停止</td>
+<td style="text-align:center">M52</td>
+<td style="text-align:center">静压泵停止</td>
 </tr>
 <tr>
-<td style="text-align:center;">M53</td>
-<td style="text-align:center;">液压修整前进</td>
+<td style="text-align:center">M53</td>
+<td style="text-align:center">液压修整前进</td>
 </tr>
 <tr>
-<td style="text-align:center;">M54</td>
-<td style="text-align:center;">液压修整返回</td>
+<td style="text-align:center">M54</td>
+<td style="text-align:center">液压修整返回</td>
 </tr>
 <tr>
-<td style="text-align:center;">M55</td>
-<td style="text-align:center;">自动对刀按键灯关闭</td>
+<td style="text-align:center">M55</td>
+<td style="text-align:center">自动对刀按键灯关闭</td>
 </tr>
 <tr>
-<td style="text-align:center;">M56</td>
-<td style="text-align:center;"></td>
+<td style="text-align:center">M56</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center;">M57</td>
-<td style="text-align:center;">退刀按键灯关闭</td>
+<td style="text-align:center">M57</td>
+<td style="text-align:center">退刀按键灯关闭</td>
 </tr>
 <tr>
-<td style="text-align:center;">M58</td>
-<td style="text-align:center;">修整器低头</td>
+<td style="text-align:center">M58</td>
+<td style="text-align:center">修整器低头</td>
 </tr>
 <tr>
-<td style="text-align:center;">M59</td>
-<td style="text-align:center;">修整器抬头</td>
+<td style="text-align:center">M59</td>
+<td style="text-align:center">修整器抬头</td>
 </tr>
 <tr>
-<td style="text-align:center;">M60</td>
-<td style="text-align:center;">外圆修整器没有回退到位置报警</td>
+<td style="text-align:center">M60</td>
+<td style="text-align:center">外圆修整器没有回退到位置报警</td>
 </tr>
 <tr>
-<td style="text-align:center;">M61</td>
-<td style="text-align:center;">手动对刀关闭</td>
+<td style="text-align:center">M61</td>
+<td style="text-align:center">手动对刀关闭</td>
 </tr>
 <tr>
-<td style="text-align:center;">M62</td>
-<td style="text-align:center;">DRF关闭</td>
+<td style="text-align:center">M62</td>
+<td style="text-align:center">DRF关闭</td>
 </tr>
 <tr>
-<td style="text-align:center;">M63</td>
-<td style="text-align:center;">变频修整轮1正转</td>
+<td style="text-align:center">M63</td>
+<td style="text-align:center">变频修整轮1正转</td>
 </tr>
 <tr>
-<td style="text-align:center;">M64</td>
-<td style="text-align:center;"></td>
+<td style="text-align:center">M64</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center;">M65</td>
-<td style="text-align:center;">变频修整轮1停止</td>
+<td style="text-align:center">M65</td>
+<td style="text-align:center">变频修整轮1停止</td>
 </tr>
 <tr>
-<td style="text-align:center;">M66</td>
-<td style="text-align:center;">安全门锁开</td>
+<td style="text-align:center">M66</td>
+<td style="text-align:center">安全门锁开</td>
 </tr>
 <tr>
-<td style="text-align:center;">M67</td>
-<td style="text-align:center;">安全门锁关</td>
+<td style="text-align:center">M67</td>
+<td style="text-align:center">安全门锁关</td>
 </tr>
 <tr>
-<td style="text-align:center;">M68</td>
-<td style="text-align:center;">液压外圆修整器伸出</td>
+<td style="text-align:center">M68</td>
+<td style="text-align:center">液压外圆修整器伸出</td>
 </tr>
 <tr>
-<td style="text-align:center;">M69</td>
-<td style="text-align:center;">液压外圆修整器缩回</td>
+<td style="text-align:center">M69</td>
+<td style="text-align:center">液压外圆修整器缩回</td>
 </tr>
 <tr>
-<td style="text-align:center;">M70</td>
-<td style="text-align:center;">过渡到进给轴运行 - 系统</td>
+<td style="text-align:center">M70</td>
+<td style="text-align:center">过渡到进给轴运行 - 系统</td>
 </tr>
 <tr>
-<td style="text-align:center;">M71</td>
-<td style="text-align:center;">液压尾架顶紧</td>
+<td style="text-align:center">M71</td>
+<td style="text-align:center">液压尾架顶紧</td>
 </tr>
 <tr>
-<td style="text-align:center;">M72</td>
-<td style="text-align:center;">液压尾架松开</td>
+<td style="text-align:center">M72</td>
+<td style="text-align:center">液压尾架松开</td>
 </tr>
 <tr>
-<td style="text-align:center;">M73</td>
-<td style="text-align:center;">液压启动</td>
+<td style="text-align:center">M73</td>
+<td style="text-align:center">液压启动</td>
 </tr>
 <tr>
-<td style="text-align:center;">M74</td>
-<td style="text-align:center;">液压停止</td>
+<td style="text-align:center">M74</td>
+<td style="text-align:center">液压停止</td>
 </tr>
 <tr>
-<td style="text-align:center;">M75</td>
-<td style="text-align:center;">液压卡盘加紧</td>
+<td style="text-align:center">M75</td>
+<td style="text-align:center">液压卡盘加紧</td>
 </tr>
 <tr>
-<td style="text-align:center;">M76</td>
-<td style="text-align:center;">液压卡盘松开</td>
+<td style="text-align:center">M76</td>
+<td style="text-align:center">液压卡盘松开</td>
 </tr>
 <tr>
-<td style="text-align:center;">M77</td>
-<td style="text-align:center;">自动测量：测量失败，触发报警信号</td>
+<td style="text-align:center">M77</td>
+<td style="text-align:center">自动测量：测量失败，触发报警信号</td>
 </tr>
 <tr>
-<td style="text-align:center;">M78</td>
-<td style="text-align:center;">修整按键灯关闭</td>
+<td style="text-align:center">M78</td>
+<td style="text-align:center">修整按键灯关闭</td>
 </tr>
 <tr>
-<td style="text-align:center;">M79</td>
-<td style="text-align:center;"></td>
+<td style="text-align:center">M79</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center;">向机械手发送信号相关的M代码</td>
-<td style="text-align:center;"></td>
+<td style="text-align:center">向机械手发送信号相关的M代码</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center;">M80</td>
-<td style="text-align:center;">罩壳门已打开信号置1(有效) $A_DBB[60] "备妥信号"</td>
+<td style="text-align:center">M80</td>
+<td style="text-align:center">罩壳门已打开信号置1(有效) $A_DBB[60] &quot;备妥信号&quot;</td>
 </tr>
 <tr>
-<td style="text-align:center;">M81</td>
-<td style="text-align:center;">罩壳门已打开信号置0(无效)</td>
+<td style="text-align:center">M81</td>
+<td style="text-align:center">罩壳门已打开信号置0(无效)</td>
 </tr>
 <tr>
-<td style="text-align:center;">M82</td>
-<td style="text-align:center;">预完成,通知机械手准备信号置1(有效) $A_DBB[61] "预完成信号"</td>
+<td style="text-align:center">M82</td>
+<td style="text-align:center">预完成,通知机械手准备信号置1(有效) $A_DBB[61] &quot;预完成信号&quot;</td>
 </tr>
 <tr>
-<td style="text-align:center;">M83</td>
-<td style="text-align:center;">预完成,通知机械手准备信号置0(无效)</td>
+<td style="text-align:center">M83</td>
+<td style="text-align:center">预完成,通知机械手准备信号置0(无效)</td>
 </tr>
 <tr>
-<td style="text-align:center;">M84</td>
-<td style="text-align:center;">机床故障信号置1(有效) $A_DBB[62] "故障信号"</td>
+<td style="text-align:center">M84</td>
+<td style="text-align:center">机床故障信号置1(有效) $A_DBB[62] &quot;故障信号&quot;</td>
 </tr>
 <tr>
-<td style="text-align:center;">M85</td>
-<td style="text-align:center;">机床故障信号置0(无效)</td>
+<td style="text-align:center">M85</td>
+<td style="text-align:center">机床故障信号置0(无效)</td>
 </tr>
 <tr>
-<td style="text-align:center;">M86</td>
-<td style="text-align:center;">卡盘松开完成信号置1(有效) $A_DBB[63] "卡盘松开完成信号"</td>
+<td style="text-align:center">M86</td>
+<td style="text-align:center">卡盘松开完成信号置1(有效) $A_DBB[63] &quot;卡盘松开完成信号&quot;</td>
 </tr>
 <tr>
-<td style="text-align:center;">M87</td>
-<td style="text-align:center;">卡盘松开完成信号置0(无效)</td>
+<td style="text-align:center">M87</td>
+<td style="text-align:center">卡盘松开完成信号置0(无效)</td>
 </tr>
 <tr>
-<td style="text-align:center;">M88</td>
-<td style="text-align:center;">卡盘夹紧完成信号置1(有效) $A_DBB[64] "卡盘夹紧完成信号"</td>
+<td style="text-align:center">M88</td>
+<td style="text-align:center">卡盘夹紧完成信号置1(有效) $A_DBB[64] &quot;卡盘夹紧完成信号&quot;</td>
 </tr>
 <tr>
-<td style="text-align:center;">M89</td>
-<td style="text-align:center;">卡盘夹紧完成信号置0(无效)</td>
+<td style="text-align:center">M89</td>
+<td style="text-align:center">卡盘夹紧完成信号置0(无效)</td>
 </tr>
 <tr>
-<td style="text-align:center;">M92</td>
-<td style="text-align:center;">卡盘吹气完成后头架已经回装夹位信号置1(有效)(选项)  or 外圆在线测量-量仪气缸伸出</td>
+<td style="text-align:center">M92</td>
+<td style="text-align:center">卡盘吹气完成后头架已经回装夹位信号置1(有效)(选项)  or 外圆在线测量-量仪气缸伸出</td>
 </tr>
 <tr>
-<td style="text-align:center;">M93</td>
-<td style="text-align:center;">卡盘吹气完成后头架已经回装夹位信号置0(无效)(选项)  or 外圆在线测量-量仪气缸缩回</td>
+<td style="text-align:center">M93</td>
+<td style="text-align:center">卡盘吹气完成后头架已经回装夹位信号置0(无效)(选项)  or 外圆在线测量-量仪气缸缩回</td>
 </tr>
 <tr>
-<td style="text-align:center;"></td>
-<td style="text-align:center;"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center;">M90</td>
-<td style="text-align:center;">测量机构2伸出</td>
+<td style="text-align:center">M90</td>
+<td style="text-align:center">测量机构2伸出</td>
 </tr>
 <tr>
-<td style="text-align:center;">M91</td>
-<td style="text-align:center;">测量机构2回退</td>
+<td style="text-align:center">M91</td>
+<td style="text-align:center">测量机构2回退</td>
 </tr>
 <tr>
-<td style="text-align:center;">外螺纹-机器人发送信号相关的M代码</td>
-<td style="text-align:center;"></td>
+<td style="text-align:center">外螺纹-机器人发送信号相关的M代码</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center;">M92</td>
-<td style="text-align:center;">尾架顶尖缩回信号置1（有效 ）</td>
+<td style="text-align:center">M92</td>
+<td style="text-align:center">尾架顶尖缩回信号置1（有效 ）</td>
 </tr>
 <tr>
-<td style="text-align:center;">M93</td>
-<td style="text-align:center;">尾架顶尖缩回信号置0（复位 ）</td>
+<td style="text-align:center">M93</td>
+<td style="text-align:center">尾架顶尖缩回信号置0（复位 ）</td>
 </tr>
 <tr>
-<td style="text-align:center;">M94</td>
-<td style="text-align:center;">机床正在运行信号置1（有效 ）</td>
+<td style="text-align:center">M94</td>
+<td style="text-align:center">机床正在运行信号置1（有效 ）</td>
 </tr>
 <tr>
-<td style="text-align:center;">M95</td>
-<td style="text-align:center;">机床正在运行信号置0（复位 ）</td>
+<td style="text-align:center">M95</td>
+<td style="text-align:center">机床正在运行信号置0（复位 ）</td>
 </tr>
 <tr>
-<td style="text-align:center;">M96</td>
-<td style="text-align:center;">机床故障信号    置0（复位 ）</td>
+<td style="text-align:center">M96</td>
+<td style="text-align:center">机床故障信号    置0（复位 ）</td>
 </tr>
 <tr>
-<td style="text-align:center;">M97</td>
-<td style="text-align:center;">机床加工完成信号置1（有效 ）</td>
+<td style="text-align:center">M97</td>
+<td style="text-align:center">机床加工完成信号置1（有效 ）</td>
 </tr>
 <tr>
-<td style="text-align:center;">M98</td>
-<td style="text-align:center;">机床加工完成信号置0（复位 ）</td>
+<td style="text-align:center">M98</td>
+<td style="text-align:center">机床加工完成信号置0（复位 ）</td>
 </tr>
 <tr>
-<td style="text-align:center;"></td>
-<td style="text-align:center;"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center;">M99</td>
-<td style="text-align:center;">复位程序</td>
+<td style="text-align:center">M99</td>
+<td style="text-align:center">复位程序</td>
 </tr>
 </tbody>
 </table>
-  </div>
+
 </body>
 </html>

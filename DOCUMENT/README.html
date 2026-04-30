@@ -346,7 +346,7 @@ code {
 	font-size: inherit;
 }
 
-/* Page Break : use <div class="page"/> to insert page break
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
 -------------------------------------------------------- */
 .page {
 	page-break-after: always;
@@ -373,7 +373,7 @@ code {
 <li>The project design to quick build the machine program which may has different spicificaton.</li>
 <li>There has an friendly interface to guide you creat you special needs, all you needed were type few word and choice the machine sctructs and then process it.</li>
 </ul>
-<h2 id="%E6%9C%BA%E5%BA%8A%E5%8F%AF%E9%80%89%E7%B1%BB%E5%9E%8B">机床可选类型</h2>
+<h2 id="机床可选类型">机床可选类型</h2>
 <ul>
 <li>机床类型: 外螺纹 内螺纹 丝锥 蜗杆</li>
 <li>修整器类型: vw(外) v(外) xz x_后(内) xw 液压修整(外)</li>
@@ -399,7 +399,7 @@ code {
 </ul>
 <h2 id="build-guide">Build Guide</h2>
 <p>视频演示: <a href="https://niekun.net/cloud/media/HorizonJuicerCreatorGuide.mp4">点击播放</a></p>
-<h2 id="%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%88%90">程序生成</h2>
+<h2 id="程序生成">程序生成</h2>
 <ol>
 <li>运行 <strong>HorizonJuicerCreator</strong></li>
 <li><strong>打开</strong> - <strong>设置</strong> 配置源仓库路径及生成路径，源仓库目录层级到 <strong>Horizon-Juicer</strong> 文件夹即可</li>
@@ -409,7 +409,7 @@ code {
 <li>点击 <strong>程序生成</strong></li>
 <li>生成成功后会自动打开所在目录</li>
 </ol>
-<h2 id="%E6%9C%BA%E5%BA%8A%E5%AF%BC%E5%85%A5">机床导入</h2>
+<h2 id="机床导入">机床导入</h2>
 <ul>
 <li>配置好的机床目录内有两个文件夹：<strong>NC-Data</strong>、<strong>System-CF-Card</strong>
 <ul>
@@ -430,7 +430,7 @@ code {
 </li>
 <li>HMI 在线帮助：若在线帮助hlp进行了修改，需删除<code>siemens/sinumerik/sys_cache/hmi/</code>目录下hlp文件夹并重启HMI</li>
 </ul>
-<h2 id="%E6%9C%BA%E5%BA%8A%E5%8F%AF%E9%80%89%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0%E9%9C%80%E5%9C%A8%E6%9C%BA%E5%BA%8A%E9%85%8D%E7%BD%AE%E7%95%8C%E9%9D%A2%E4%BF%AE%E6%94%B9%E9%83%A8%E5%88%86%E5%8F%82%E6%95%B0%E6%A0%B9%E6%8D%AE%E6%9C%BA%E5%BA%8A%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E8%AE%BE%E7%BD%AE">机床可选配置参数：(需在机床配置界面修改，部分参数根据机床配置自动设置)</h2>
+<h2 id="机床可选配置参数需在机床配置界面修改部分参数根据机床配置自动设置">机床可选配置参数：(需在机床配置界面修改，部分参数根据机床配置自动设置)</h2>
 <table>
 <thead>
 <tr>
@@ -574,6 +574,16 @@ code {
 <td style="text-align:center">磨削冷却附加通道选择</td>
 <td style="text-align:center">TECHNOLOGY[307]</td>
 <td style="text-align:center">预设为 0 (0无/1-M28/2-M38)</td>
+</tr>
+<tr>
+<td style="text-align:center">工艺界面压力检测信号显示</td>
+<td style="text-align:center">TECHNOLOGY[367]</td>
+<td style="text-align:center">预设为 0 (0隐藏1显示)</td>
+</tr>
+<tr>
+<td style="text-align:center">工艺设置双向进刀时进刀量模式</td>
+<td style="text-align:center">TECHNOLOGY[369]</td>
+<td style="text-align:center">预设为 0 (0双向总和/1单次进刀量)</td>
 </tr>
 <tr>
 <td style="text-align:center"></td>
@@ -899,6 +909,11 @@ code {
 <td style="text-align:center">Y轴设置界面开启</td>
 <td style="text-align:center">TECHNOLOGY[359]</td>
 <td style="text-align:center">预设为 0 (工艺界面)</td>
+</tr>
+<tr>
+<td style="text-align:center">配件寿命界面开启</td>
+<td style="text-align:center">TECHNOLOGY[368]</td>
+<td style="text-align:center">预设为 0 (custom主界面)</td>
 </tr>
 <tr>
 <td style="text-align:center"></td>

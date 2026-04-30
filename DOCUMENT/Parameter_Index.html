@@ -346,7 +346,7 @@ code {
 	font-size: inherit;
 }
 
-/* Page Break : use <div class="page"/> to insert page break
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
 -------------------------------------------------------- */
 .page {
 	page-break-after: always;
@@ -534,6 +534,16 @@ code {
 <td style="text-align:center">$A_DBB[80]</td>
 <td style="text-align:center">DB4900.DBX80.0</td>
 <td style="text-align:center">侧门是否关闭到位(磨削中心)</td>
+</tr>
+<tr>
+<td style="text-align:center">$A_DBB[40]</td>
+<td style="text-align:center">DB4900.DBX40.0</td>
+<td style="text-align:center">力矩电机测试信号-夹紧</td>
+</tr>
+<tr>
+<td style="text-align:center">$A_DBB[41]</td>
+<td style="text-align:center">DB4900.DBX41.0</td>
+<td style="text-align:center">力矩电机测试信号-松开</td>
 </tr>
 <tr>
 <td style="text-align:center"><strong>与桁架机器人交互相关的信号</strong></td>
@@ -1403,6 +1413,11 @@ code {
 <tr>
 <td style="text-align:center">DRESSER[139]</td>
 <td style="text-align:center">是否使用外部齿形程序(0否/1是-左右分开修整/2是-带刀具的连续轨迹曲线)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">DRESSER[140]</td>
+<td style="text-align:center">UW修整器-修整位.X</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -5182,7 +5197,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[353]</td>
-<td style="text-align:center">砂轮中心距离A中心距离(砂轮在A左侧为正)</td>
+<td style="text-align:center">有Y轴-电主轴端面距离A中心距离(砂轮在A左侧为正)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -5213,6 +5228,96 @@ code {
 <tr>
 <td style="text-align:center">TECHNOLOGY[359]</td>
 <td style="text-align:center">Y轴设置界面开启(0隐藏1开启)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[360]</td>
+<td style="text-align:center">有Y轴-磨杆长度</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[361]</td>
+<td style="text-align:center">UW轴修整时-夹紧位置</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[362]</td>
+<td style="text-align:center">UW轴修整时-松开位置</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[363]</td>
+<td style="text-align:center">UW轴修整时-夹紧力矩</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[364]</td>
+<td style="text-align:center">UW轴修整时-是否有力矩夹紧轴控制(0否1是)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[365]</td>
+<td style="text-align:center">有Y轴-砂轮修整中心到磨杆端面距离</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[366]</td>
+<td style="text-align:center">UW轴修整时-监控范围</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[367]</td>
+<td style="text-align:center">工艺界面压力检测信号显示(0隐藏1显示)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[368]</td>
+<td style="text-align:center">配件寿命管理界面显示(0隐藏1显示)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[369]</td>
+<td style="text-align:center">工艺设置双向进刀时进刀量模式(0双向总和/1单次进刀量)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[370]</td>
+<td style="text-align:center">工艺设置双向进刀时进刀量模式为单次进刀时的进刀量-批量-1</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[371]</td>
+<td style="text-align:center">工艺设置双向进刀时进刀量模式为单次进刀时的进刀量-批量-2</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[372]</td>
+<td style="text-align:center">工艺设置双向进刀时进刀量模式为单次进刀时的进刀量-批量-3</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[373]</td>
+<td style="text-align:center">工艺设置双向进刀时进刀量模式为单次进刀时的进刀量-批量-4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[374]</td>
+<td style="text-align:center">工艺设置双向进刀时进刀量模式为单次进刀时的进刀量-单件-1</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[375]</td>
+<td style="text-align:center">工艺设置双向进刀时进刀量模式为单次进刀时的进刀量-单件-2</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[376]</td>
+<td style="text-align:center">工艺设置双向进刀时进刀量模式为单次进刀时的进刀量-单件-3</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[377]</td>
+<td style="text-align:center">工艺设置双向进刀时进刀量模式为单次进刀时的进刀量-单件-4</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>

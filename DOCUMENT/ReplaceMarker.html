@@ -346,7 +346,7 @@ code {
 	font-size: inherit;
 }
 
-/* Page Break : use <div class="page"/> to insert page break
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
 -------------------------------------------------------- */
 .page {
 	page-break-after: always;
@@ -365,7 +365,7 @@ code {
           : 'default'
     });
   </script>
-<h1 id="%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%97%E7%AC%A6%E6%9B%BF%E6%8D%A2%E6%A0%87%E8%AE%B0%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83">程序内字符替换标记编写规范</h1>
+<h1 id="程序内字符替换标记编写规范">程序内字符替换标记编写规范</h1>
 <p>将标记写在行末，则会根据情况保留或删除此行内容，以下程序在外螺纹时会保留，内螺纹时会自动删除：</p>
 <pre class="hljs"><code><div>G90 G01 X=100 F100; ifIsExternal
 </div></code></pre>
@@ -438,6 +438,14 @@ code {
 <tr>
 <td style="text-align:center">不是XW修整器</td>
 <td style="text-align:center">ifIsNotXW</td>
+</tr>
+<tr>
+<td style="text-align:center">是UW修整器</td>
+<td style="text-align:center">ifIsUW</td>
+</tr>
+<tr>
+<td style="text-align:center">不是UW修整器</td>
+<td style="text-align:center">ifIsNotUW</td>
 </tr>
 <tr>
 <td style="text-align:center">丝锥</td>

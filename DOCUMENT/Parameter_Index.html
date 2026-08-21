@@ -1527,7 +1527,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">INI[19]</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">断电回退后退距离(限制最大5mm)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -2217,7 +2217,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">INI[157]</td>
-<td style="text-align:center">自动对刀测头伸出缩回是否有检测信号(0有1没有)</td>
+<td style="text-align:center">自动对刀-测量机构1-伸出缩回是否有检测信号(0有1没有)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -2228,6 +2228,16 @@ code {
 <tr>
 <td style="text-align:center">INI[159]</td>
 <td style="text-align:center">自动对刀测量是否二次慢速检测(0两次/1一次)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">INI[160]</td>
+<td style="text-align:center">自动对刀-测量机构2-伸出缩回是否有检测信号(0有1没有)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">INI[161]</td>
+<td style="text-align:center">寿命管理-当前滚轮序号</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -2547,7 +2557,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TOOL_SET[61]</td>
-<td style="text-align:center">螺距变换界面隐藏(0隐藏/1开启)</td>
+<td style="text-align:center">螺距变换界面隐藏(0隐藏/1单/2多)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -4067,7 +4077,7 @@ code {
 </tr>
 <tr>
 <td style="text-align:center">TECHNOLOGY[127]</td>
-<td style="text-align:center">内螺纹自动对刀-测量模式选择(0测量反向孔/1测量右端小台阶/2测量右端定位孔)</td>
+<td style="text-align:center">内螺纹自动对刀-测量模式选择(0测量反向孔/1测量右端小台阶/2测量右端定位孔/3测量外圆直线及右端面内壁)</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
@@ -5503,6 +5513,86 @@ code {
 <tr>
 <td style="text-align:center">TECHNOLOGY[414]</td>
 <td style="text-align:center">反向孔倒角-单滚道-孔间距-2324</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[415]</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[416]</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[417]</td>
+<td style="text-align:center">多螺距变换-坐标变换位-位置2</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[418]</td>
+<td style="text-align:center">多螺距变换-坐标变换位-位置3</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[419]</td>
+<td style="text-align:center">多螺距变换-坐标变换位-位置4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[420]</td>
+<td style="text-align:center">多螺距变换-坐标变换位-位置5</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[421]</td>
+<td style="text-align:center">多螺距变换-变螺距角度-角度1</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[422]</td>
+<td style="text-align:center">多螺距变换-变螺距角度-角度2</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[423]</td>
+<td style="text-align:center">多螺距变换-变螺距角度-角度3</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[424]</td>
+<td style="text-align:center">多螺距变换-变螺距角度-角度4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[425]</td>
+<td style="text-align:center">多螺距变换-变螺距角度-角度5</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[426]</td>
+<td style="text-align:center">多螺距变换-螺距变换值-螺距1</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[427]</td>
+<td style="text-align:center">多螺距变换-螺距变换值-螺距2</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[428]</td>
+<td style="text-align:center">多螺距变换-螺距变换值-螺距3</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[429]</td>
+<td style="text-align:center">多螺距变换-螺距变换值-螺距4</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">TECHNOLOGY[430]</td>
+<td style="text-align:center">多螺距变换-螺距变换值-螺距5</td>
 <td style="text-align:center"></td>
 </tr>
 <tr>
